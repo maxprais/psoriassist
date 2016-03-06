@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # {{ project_name }}
 
 ## Getting Started
@@ -11,3 +12,6 @@ pip install -r requirements.txt
 ./manage.py loaddata sites
 ./manage.py runserver
 ```
+=======
+# psoriassist
+>>>>>>> ce8f42e6daf6726d2f6c2c1414468ec8f78f858a
