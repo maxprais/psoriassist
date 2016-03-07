@@ -8,7 +8,6 @@ class AppUser(models.Model):
     age = models.IntegerField(blank=True)
     birthday = models.DateField(blank=True)
     profile_picture = models.ImageField(blank=True)
-    PASI = models.IntegerField(blank=True)
     last_doctor_appointment = models.DateField(blank=True)
     date_registered = models.DateField(blank=False)
     bio = models.CharField(max_length=2000, blank=True)
@@ -29,15 +28,32 @@ class Message(models.Model):
     def __str__(self):
         return self.message_date
 
+
 class Lesion(models.Model):
     user = models.ForeignKey(AppUser)
+    name = models.CharField(max_length=500)
     image = models.ImageField(blank=False)
+    lesion_location = models.OneToOneField('LesionSection')
     date_taken = models.DateTimeField(blank=False)
     size = models.IntegerField(blank=False)
     redness = models.IntegerField(blank=False)
 
     def __str__(self):
-        return self.image
+        return "%s- %s %s" % (self.user.user.username, self.name, self.date_taken)
+
+
+class PASIScore(models.Model):
+    user = models.ForeignKey(AppUser)
+    score = models.CharField(max_length=100)
+
+
+class LesionSection(models.Model):
+    section_name = models.CharField(max_length=100)
+    PASI = models.OneToOneField(PASIScore, default=0)
+
+    def __str__(self):
+        return self.section_name
+
 
 class MentalState(models.Model):
     user = models.ForeignKey(AppUser)
