@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import AppUser, Message, Lesion, MentalState, Medication, Rating, Doctor, Appointment, LesionSection, PASIScore
+from .models import AppUser, Message, Lesion, MentalState, Medication, Rating, Doctor, Appointment, LesionSection, \
+    PASIScore
 
 admin.site.register(AppUser)
 admin.site.register(Message)

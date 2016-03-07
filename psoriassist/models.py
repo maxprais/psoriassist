@@ -18,6 +18,7 @@ class AppUser(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Message(models.Model):
     user = models.ForeignKey(AppUser, related_name='initialiseConvo')
     other_user = models.ForeignKey(AppUser, related_name='answerConvo')
@@ -29,11 +30,27 @@ class Message(models.Model):
         return self.message_date
 
 
+
+class PASIScore(models.Model):
+    user = models.ForeignKey(AppUser)
+    score = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user.user.username
+
+
+class LesionSection(models.Model):
+    section_name = models.CharField(max_length=100)
+    PASI = models.ForeignKey(PASIScore)
+
+    def __str__(self):
+        return self.section_name
+
 class Lesion(models.Model):
     user = models.ForeignKey(AppUser)
     name = models.CharField(max_length=500)
     image = models.ImageField(blank=False)
-    lesion_location = models.OneToOneField('LesionSection')
+    lesion_location = models.ForeignKey('LesionSection')
     date_taken = models.DateTimeField(blank=False)
     size = models.IntegerField(blank=False)
     redness = models.IntegerField(blank=False)
@@ -41,18 +58,6 @@ class Lesion(models.Model):
     def __str__(self):
         return "%s- %s %s" % (self.user.user.username, self.name, self.date_taken)
 
-
-class PASIScore(models.Model):
-    user = models.ForeignKey(AppUser)
-    score = models.CharField(max_length=100)
-
-
-class LesionSection(models.Model):
-    section_name = models.CharField(max_length=100)
-    PASI = models.OneToOneField(PASIScore, default=0)
-
-    def __str__(self):
-        return self.section_name
 
 
 class MentalState(models.Model):
@@ -81,10 +86,12 @@ class Medication(models.Model):
 class Rating(models.Model):
     user = models.ManyToManyField(AppUser)
     medication = models.ForeignKey(Medication)
-    rating = models.SmallIntegerField(default=0)
+    effectiveness = models.SmallIntegerField(default=0)
+    quality_of_life = models.SmallIntegerField(default=0)
+    adherence = models.SmallIntegerField(default=0)
 
     def __str__(self):
-        return "%s %s" % (self.medication.name, self.rating)
+        return "%s" % self.medication.name
 
 
 class Doctor(models.Model):
