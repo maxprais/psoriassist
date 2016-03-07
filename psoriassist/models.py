@@ -20,11 +20,6 @@ class AppUser(models.Model):
         return self.user.username
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 3deeef4328d3efb474c29b199c645b9505c569aa
 class Message(models.Model):
     user = models.ForeignKey(AppUser, related_name='initialiseConvo')
     other_user = models.ForeignKey(AppUser, related_name='answerConvo')
