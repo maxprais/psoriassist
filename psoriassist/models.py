@@ -47,7 +47,7 @@ class MentalState(models.Model):
     date_taken = models.DateTimeField(blank=False)
 
     def __str__(self):
-        return self.user.user.username
+        return "%s- %s" % (self.user.user.username, self.date_taken)
 
 class Medication(models.Model):
     user = models.ForeignKey(AppUser)
@@ -57,17 +57,19 @@ class Medication(models.Model):
     expiration_date = models.DateField(blank=False)
     dosage = models.CharField(max_length=2000)
     other_info = models.TextField(max_length=2000)
+    isCurrent = models.BooleanField(blank=False)
 
     def __str__(self):
-        return self.name
+        return "%s- %s" % (self.user.user.username, self.name)
 
 class Rating(models.Model):
     user = models.ManyToManyField(AppUser)
-    medication = models.ManyToManyField(Medication)
+    medication = models.ForeignKey(Medication)
     rating = models.SmallIntegerField(default=0)
 
     def __str__(self):
         return "%s %s" % (self.medication.name, self.rating)
+
 
 class Doctor(models.Model):
     name = models.CharField(max_length=100)
