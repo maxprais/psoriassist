@@ -4,6 +4,10 @@ from account.signals import password_changed
 from account.signals import user_sign_up_attempt, user_signed_up
 from account.signals import user_login_attempt, user_logged_in
 
+from psoriassist.views import Index
+
+from psoriassist import views
+
 from pinax.eventlog.models import log
 
 
@@ -57,4 +61,9 @@ def handle_user_signed_up(sender, **kwargs):
         action="USER_SIGNED_UP",
         extra={}
     )
+
+
+
+
+
 

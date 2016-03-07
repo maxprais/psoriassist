@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Psoriassist</title>
-</head>
-<body>
+{% extends "site_base.html" %}
+index
 
-<h1>Hello, world!</h1>
+{% block site_nav %}
+{% if user.is_authenticated %}
 
-</body>
-</html>
+    <p>Hi!</p>
+
+    {% else %}
+    <p>You must be authenticated to see this page!</p>
+{% endif %}
+{% endblock %}
+
