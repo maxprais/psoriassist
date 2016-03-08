@@ -4,7 +4,7 @@ from .models import AppUser, Message, Lesion, MentalState, Medication, Rating, D
 
 
 class AppUserAdmin(admin.ModelAdmin):
-    list_display = ('user', 'date_registered')
+    list_display = ('user',)
 
 admin.site.register(AppUser, AppUserAdmin)
 

@@ -9,11 +9,10 @@ class AppUser(models.Model):
     birthday = models.DateField(null=True)
     profile_picture = models.ImageField(null=True)
     last_doctor_appointment = models.DateField(null=True)
-    date_registered = models.DateField()
     bio = models.CharField(max_length=2000, null=True)
     isMentor = models.BooleanField()
-    mentoree = models.ManyToManyField('AppUser', null=True)
-    doctor = models.ManyToManyField('Doctor', null=True)
+    mentoree = models.ManyToManyField('AppUser')
+    doctor = models.ManyToManyField('Doctor')
 
     def __str__(self):
         return self.user.username
