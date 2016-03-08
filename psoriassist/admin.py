@@ -8,10 +8,16 @@ class AppUserAdmin(admin.ModelAdmin):
 
 admin.site.register(AppUser, AppUserAdmin)
 
+
+class PasiScoreAdmin(admin.ModelAdmin):
+    list_display = ('user', 'score')
+
+admin.site.register(PASIScore, PasiScoreAdmin)
+
 admin.site.register(Message)
 admin.site.register(Lesion)
 admin.site.register(LesionSection)
-admin.site.register(PASIScore)
+
 admin.site.register(MentalState)
 admin.site.register(Medication)
 admin.site.register(Rating)
