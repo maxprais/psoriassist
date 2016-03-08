@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import AppUser, User
-
+import dbgenerate
 
 class Index(View):
     def get(self, request):
+        dbgenerate.create_user()
+        dbgenerate.update_lesion()
         return render(request, 'psoriassist/index.html')
 
 
