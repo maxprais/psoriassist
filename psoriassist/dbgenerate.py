@@ -10,11 +10,18 @@ from django.contrib.auth.models import User
 
 def create_user():
 
-    name = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
-    
-    new_user = AppUser(user=name, age=22, bio='hi im max', isMentor=True)
-    new_user.save()
+    name_list = ['jack', 'jake', 'micah']
+    email_list = ['jack@gmail.com', 'jake@gmail.com', 'micah@gmail.com']
+    password_list = ['1234', '4567', '891011']
 
+    # for n, e, p in zip(name_list, email_list, password_list):
+    #     new = User.objects.create_user(n, e, p)
+    for i in range(len(name_list)):
+        new = User.objects.get(username=name_list[i])
+        new_user = AppUser(user=new, age=22, bio='hi im' + name_list[i], isMentor=False)
+        new_user.save()
+
+create_user()
 
 
 def update_lesion():
@@ -24,4 +31,4 @@ def update_lesion():
                         redness=3, scale=1)
     lesion_obj.save()
 
-update_lesion()
+# update_lesion()
