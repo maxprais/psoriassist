@@ -12,30 +12,32 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-8 col-md-offset-4">
+            <div class="col-md-4">
                 <div class="photo" id="my_camera" style="width:320px; height:240px;"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-8 col-md-offset-4">
-                    <div class="photo" id="my_result"></div>
-                    <form>
-                        <div id="pre_take_buttons">
-                            <a class="take-photo btn btn-warning btn-rounded waves-effect waves-light" onClick="preview_snapshot()">Take Snapshot</a>
-                        </div>
+                <div id="pre_take_buttons">
+                    <a class="take-photo btn btn-warning btn-rounded waves-effect waves-light" onClick="preview_snapshot()">Take Snapshot</a>
+                </div>
+                <form>
                         <div id="post_take_buttons" style="display:none">
                             <a class="take-photo btn btn-warning btn-rounded waves-effect waves-light" onClick="cancel_preview()">Take Another</a>
                             <a class="take-photo btn btn-warning btn-rounded waves-effect waves-light"  onClick="save_photo()">Save Photo</a>
                         </div>
                     </form>
-                </div>
+                <div class="photo" id="my_result"></div>
             </div>
 
+
+
+
+            <div class="col-md-4">
+                {% include 'psoriassist/body_svg.html' %}
+            </div>
 
 
         </div>
 
     </div>
+
 
 
     <script language="JavaScript">

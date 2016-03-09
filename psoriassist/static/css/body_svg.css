@@ -1,0 +1,14 @@
+.selected{
+    fill: red;
+    opacity: 0.8 ;
+}
+svg{
+    height: 600px;
+}
+
+g:hover path {
+    fill: #FF8800;
+    cursor: pointer;
+    opacity: 0.8;
+
+}
