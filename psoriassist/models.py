@@ -47,13 +47,13 @@ class LesionSection(models.Model):
 
 class Lesion(models.Model):
     user = models.ForeignKey(AppUser)
-    name = models.CharField(max_length=500)
+    name = models.CharField(null=True, max_length=500)
     image = models.ImageField(blank=True)
     lesion_location = models.ForeignKey(LesionSection)
-    date_taken = models.DateTimeField()
-    thickness = models.IntegerField()
-    redness = models.IntegerField()
-    scale = models.IntegerField()
+    date_taken = models.DateTimeField(null=True)
+    thickness = models.IntegerField(null=True)
+    redness = models.IntegerField(null=True)
+    scale = models.IntegerField(null=True)
 
     def __str__(self):
         return "%s- %s %s" % (self.user.user.username, self.name, self.date_taken)
