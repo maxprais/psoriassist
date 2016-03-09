@@ -70,6 +70,20 @@
             document.getElementById('post_take_buttons').style.display = 'none';
         }
 
+        function sendPhoto(img){
+               $.ajax({
+                    type: "POST",
+                    url: '',
+                    data: [{image: img},{username: $('.username').text()}],
+                    dataType: 'JSON',
+                    success: function(data){
+                        console.log(data)
+                    }
+
+                });
+            }
+
+
         function save_photo() {
             // actually snap photo (from preview freeze) and display it
             Webcam.snap(function (data_uri) {
@@ -81,21 +95,13 @@
                 // swap buttons back
                 document.getElementById('pre_take_buttons').style.display = '';
                 document.getElementById('post_take_buttons').style.display = 'none';
+                sendPhoto(data_uri)
 
-                $.ajax({
 
-                    type: "POST",
-                    url: '/camera',
-                    data: [{image: data_uri},{username: $('.username').text()}],
-                    dataType: 'JSON',
-                    success: function(data){
-                        console.log(data)
-                    }
-
-                });
-            });
-
+            })
         }
+
+
 
 
 

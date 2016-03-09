@@ -97,7 +97,7 @@ class Rating(models.Model):
 class Doctor(models.Model):
     name = models.CharField(max_length=100)
     work_address = models.CharField(max_length=500)
-    profile_picture = models.ImageField()
+    profile_picture = models.ImageField(null=True)
     distance_from_user = models.CharField(max_length=300)
 
     def __str__(self):
