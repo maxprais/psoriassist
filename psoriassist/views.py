@@ -7,6 +7,10 @@ class Index(View):
     def get(self, request):
         return render(request, 'psoriassist/site_nav.html')
 
+class Rate(View):
+    def get(self, request):
+        return render (request, 'psoriassist/rate_medication.html')
+
 class TakePhoto(View):
     def get(self, request):
         return render(request, 'psoriassist/take_photo.html')
