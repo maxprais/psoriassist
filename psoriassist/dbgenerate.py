@@ -49,7 +49,7 @@ def update_lesion():
     #                     redness=3, scale=1)
     #     lesion_obj.save()
 
-update_lesion()
+# update_lesion()
 
 def pasi():
     pasi_list = ['3.5', '2.7', '3.9', '7.5', '5.1', '1.6', '4.4']
