@@ -1,10 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'psoriassist/base.html' %}
+{% load staticfiles %}
+{% block js %}
+    <script src={% static 'js/webcam.js' %}></script>
+{% endblock %}
 
-</body>
-</html>
+{% block css %}
+    <link rel="stylesheet" href={% static 'css/take_photo.css' %}>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-4">
+                <div class="photo" id="my_camera" style="width:320px; height:240px;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-4">
+                <div class="photo" id="my_result"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script language="JavaScript">
+        Webcam.attach( '#my_camera' );
+
+        function take_snapshot() {
+            Webcam.snap( function(data_uri) {
+                document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+            } );
+        }
+    </script>
+
+    <a href="javascript:void(take_snapshot())">Take Snapshot</a>
+{% endblock %}
