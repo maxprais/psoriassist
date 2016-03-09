@@ -4,7 +4,7 @@ from .models import AppUser, User
 
 class Index(View):
     def get(self, request):
-        return render(request, 'psoriassist/index.html')
+        return render(request, 'psoriassist/base.html')
 
 
 # class UserLogin(View):

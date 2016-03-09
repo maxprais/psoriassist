@@ -36,14 +36,14 @@
                                 {% block site_brand %}<a class="navbar-brand" href="{% url "home" %}">{{ SITE_NAME }}</a>{% endblock %}
                             </div>
                             <div class="collapse navbar-collapse navbar-responsive-collapse">
-                                {% block nav %}
-                                    {% comment %}
-                                        <ul class="nav navbar-nav">
-                                            <li><a href="#tab_one">One</a></li>
-                                            <li><a href="#tab_two">Two</a></li>
-                                        </ul>
-                                    {% endcomment %}
-                                {% endblock %}
+{#                                {% block nav %}#}
+{#                                    {% comment %}#}
+{#                                        <ul class="nav navbar-nav">#}
+{#                                            <li><a href="#tab_one">One</a></li>#}
+{#                                            <li><a href="#tab_two">Two</a></li>#}
+{#                                        </ul>#}
+{#                                    {% endcomment %}#}
+{#                                {% endblock %}#}
                                 {% block account_bar %}{% include "_account_bar.html" %}{% endblock %}
                             </div>
                         {% endblock %}
@@ -55,6 +55,8 @@
             {% block site_nav %}
 
             {% endblock %}
+
+
 
             {% block body_base %}
                 <section id="content_body">
