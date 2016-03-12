@@ -71,10 +71,15 @@
         }
 
         function sendPhoto(img){
+                var imgInfo = {
+                    image: img,
+                    username: $('.username').text()
+                };
+
                $.ajax({
                     type: "POST",
-                    url: '',
-                    data: [{image: img},{username: $('.username').text()}],
+                    url: 'camera',
+                    data: imgInfo,
                     dataType: 'JSON',
                     success: function(data){
                         console.log(data)
