@@ -70,37 +70,14 @@
             $('#post_take_buttons').css('display', 'none');
         }
 
-        function getCookie(name) {
-            var cookieValue = null;
-            if (document.cookie && document.cookie != '') {
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = jQuery.trim(cookies[i]);
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-
-
         function sendPhoto(img){
-                var imgInfo = {
-                    image: img,
-                    username: $('.username').text()
-                };
-            var csrftoken = getCookie('csrftoken');
+
 
                $.ajax({
                     type: "POST",
-                    url: {% url 'psoriassist:camera' %},
-                    data: {
-                        imgInfo :imgInfo,
-                        csrfmiddlewaretoken: csrftoken
-                    },
+{#                    url: {% url 'psoriassist:camera' %},#}
+                    url: '/app/camera/',
+                    data: {image: img, username: $('.username').text()},
                     dataType: 'JSON',
                     success: function(data){
                         console.log(data)

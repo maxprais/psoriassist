@@ -17,12 +17,17 @@ class TakePhoto(View):
 
 
     def post(self, request):
-
         new_img = request.POST['image']
         username = request.POST['username']
+        username = username[1:]
+        print User.objects
 
-        user = AppUser.objects.get(user=username)
-        new_lesion_img = Lesion(user=user, image=new_img)
+        user_instance = User.objects.get(username=username)
+
+        print user_instance
+
+        app_user = AppUser.objects.get(user=user_instance)
+        new_lesion_img = Lesion(user=app_user, image=new_img)
         new_lesion_img.save()
 
         messages.add_message(request, messages.SUCCESS, 'Thanks %s your image has been saved' % username)

@@ -3,12 +3,20 @@
  */
 body = {};
 
-body.select = $(function(){
-    $('g').on('click', function(){
+body.select = $(function() {
+    $('path').on('click', function () {
         console.log($(this));
-        $(this).addClass('selected');
+        $(this).css('fill', 'blue');
+        body.unselect()
+
     });
 });
+
+
+body.unselect = function(){
+    $('path').css('fill', '');
+};
+
 
 
 

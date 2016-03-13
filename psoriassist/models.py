@@ -48,8 +48,8 @@ class LesionSection(models.Model):
 class Lesion(models.Model):
     user = models.ForeignKey(AppUser)
     name = models.CharField(null=True, max_length=500)
-    image = models.ImageField(blank=True)
-    lesion_location = models.ForeignKey(LesionSection)
+    image = models.CharField(max_length=2000, blank=True)
+    lesion_location = models.ForeignKey(LesionSection, null=True)
     date_taken = models.DateTimeField(null=True)
     thickness = models.IntegerField(null=True)
     redness = models.IntegerField(null=True)
