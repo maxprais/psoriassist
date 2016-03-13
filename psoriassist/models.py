@@ -47,13 +47,13 @@ class LesionSection(models.Model):
 
 class Lesion(models.Model):
     user = models.ForeignKey(AppUser)
-    name = models.CharField(max_length=500)
-    image = models.ImageField(blank=True)
-    lesion_location = models.ForeignKey(LesionSection)
-    date_taken = models.DateTimeField()
-    thickness = models.IntegerField()
-    redness = models.IntegerField()
-    scale = models.IntegerField()
+    name = models.CharField(null=True, max_length=500)
+    image = models.CharField(max_length=2000, blank=True)
+    lesion_location = models.ForeignKey(LesionSection, null=True)
+    date_taken = models.DateTimeField(null=True)
+    thickness = models.IntegerField(null=True)
+    redness = models.IntegerField(null=True)
+    scale = models.IntegerField(null=True)
 
     def __str__(self):
         return "%s- %s %s" % (self.user.user.username, self.name, self.date_taken)
@@ -97,7 +97,7 @@ class Rating(models.Model):
 class Doctor(models.Model):
     name = models.CharField(max_length=100)
     work_address = models.CharField(max_length=500)
-    profile_picture = models.ImageField()
+    profile_picture = models.ImageField(null=True)
     distance_from_user = models.CharField(max_length=300)
 
     def __str__(self):
