@@ -8,6 +8,7 @@ function take_snapshot() {
         document.getElementById('my_result').innerHTML = '<img src="' + data_uri + '"/>';
     });
 }
+take_snapshot();
 
 function preview_snapshot() {
     // freeze camera so user can preview pic

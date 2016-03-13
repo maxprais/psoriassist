@@ -57,8 +57,8 @@
             Webcam.freeze();
 
             // swap button sets
-            document.getElementById('pre_take_buttons').style.display = 'none';
-            document.getElementById('post_take_buttons').style.display = '';
+            $('#pre_take_buttons').css('display', 'none');
+            $('#post_take_buttons').css('display', '');
         }
 
         function cancel_preview() {
@@ -66,20 +66,41 @@
             Webcam.unfreeze();
 
             // swap buttons back
-            document.getElementById('pre_take_buttons').style.display = '';
-            document.getElementById('post_take_buttons').style.display = 'none';
+             $('#pre_take_buttons').css('display', '');
+            $('#post_take_buttons').css('display', 'none');
         }
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
 
         function sendPhoto(img){
                 var imgInfo = {
                     image: img,
                     username: $('.username').text()
                 };
+            var csrftoken = getCookie('csrftoken');
 
                $.ajax({
                     type: "POST",
-                    url: 'camera',
-                    data: imgInfo,
+                    url: {% url 'psoriassist:camera' %},
+                    data: {
+                        imgInfo :imgInfo,
+                        csrfmiddlewaretoken: csrftoken
+                    },
                     dataType: 'JSON',
                     success: function(data){
                         console.log(data)
