@@ -5,7 +5,7 @@ from django.contrib import messages
 
 class Index(View):
     def get(self, request):
-        return render(request, 'psoriassist/site_nav.html')
+        return render(request, 'psoriassist/welcome.html')
 
 class Rate(View):
     def get(self, request):
