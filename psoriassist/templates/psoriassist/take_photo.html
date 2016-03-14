@@ -57,8 +57,8 @@
             Webcam.freeze();
 
             // swap button sets
-            document.getElementById('pre_take_buttons').style.display = 'none';
-            document.getElementById('post_take_buttons').style.display = '';
+            $('#pre_take_buttons').css('display', 'none');
+            $('#post_take_buttons').css('display', '');
         }
 
         function cancel_preview() {
@@ -66,11 +66,13 @@
             Webcam.unfreeze();
 
             // swap buttons back
-            document.getElementById('pre_take_buttons').style.display = '';
-            document.getElementById('post_take_buttons').style.display = 'none';
+             $('#pre_take_buttons').css('display', '');
+            $('#post_take_buttons').css('display', 'none');
         }
 
         function sendPhoto(img){
+
+
                $.ajax({
                     type: "POST",
 {#                    url: {% url 'psoriassist:camera' %},#}
