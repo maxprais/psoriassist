@@ -33,6 +33,9 @@ class TakePhoto(View):
         messages.add_message(request, messages.SUCCESS, 'Thanks %s your image has been saved' % username)
 
 
+class Welcome(View):
+    def get(self, request):
+        return render(request, 'psoriassist/welcome.html')
 
 
 # class UserLogin(View):

@@ -1,0 +1,8 @@
+#first{
+    margin: auto;
+}
+
+#second{
+    margin: auto;
+    -webkit-animation-delay: 2.3s;
+}
