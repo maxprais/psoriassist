@@ -35,6 +35,9 @@ class TakePhoto(View):
         return render(request, 'psoriassist/site_nav.html')
 
 
+class Welcome(View):
+    def get(self, request):
+        return render(request, 'psoriassist/welcome.html')
 
 
 # class UserLogin(View):
