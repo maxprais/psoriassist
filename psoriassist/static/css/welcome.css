@@ -6,3 +6,11 @@
     margin: auto;
     -webkit-animation-delay: 2.3s;
 }
+
+.btn{
+    float: right;
+}
+
+.wait{
+    -webkit-animation-delay: 2s;
+}

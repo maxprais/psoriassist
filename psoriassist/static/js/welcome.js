@@ -23,7 +23,11 @@ conversation.next = function () {
         console.log($(this));
         chosen.button($(this), $(this).next());
         divs.create();
-        var head = $('<h1></h1>', {text: 'Great, glad to hear it', class: 'animated zoomIn'});
+        var head = $('<h3></h3>', {text: '...', class: 'animated zoomIn '});
+        $('#2').append(head); 
+        head.addClass('wait');
+        head.text("Great, glad to hear it. You know what they say: A good laugh and a long sleep" +
+            " are the best cures in the doctor's book.");
         $('#2').append(head);
     })
 
