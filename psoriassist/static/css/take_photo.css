@@ -4,6 +4,9 @@
 .wrapper{
     text-align: center;
 }
-.take-photo{
-
+.body-wrapper{
+    text-align: center;
+}
+.hidden{
+    display: none;
 }

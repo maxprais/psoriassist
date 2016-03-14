@@ -32,8 +32,6 @@ class TakePhoto(View):
 
         messages.add_message(request, messages.SUCCESS, 'Thanks %s your image has been saved' % username)
 
-        return render(request, 'psoriassist/site_nav.html')
-
 
 
 

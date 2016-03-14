@@ -1,20 +1,27 @@
 /**
  * Created by User on 3/9/2016.
  */
-body = {};
+photoBody = {};
 
-body.select = $(function() {
+photoBody.select = $(function() {
     $('path').on('click', function () {
         console.log($(this));
         $(this).css('fill', 'blue');
-        body.unselect()
+        photoBody.unselect();
+        photoBody.hide();
 
     });
 });
 
 
-body.unselect = function(){
+photoBody.unselect = function(){
     $('path').css('fill', '');
+};
+
+photoBody.hide = function(){
+   $('.body-cont').addClass('hidden');
+   $('.camera-cont').removeClass('hidden');
+    Webcam.attach('#my_camera');
 };
 
 
