@@ -5,7 +5,7 @@ from django.contrib import messages
 
 class Index(View):
     def get(self, request):
-        return render(request, 'psoriassist/site_nav.html')
+        return render(request, 'psoriassist/welcome.html')
 
 class Rate(View):
     def get(self, request):
@@ -31,8 +31,6 @@ class TakePhoto(View):
         new_lesion_img.save()
 
         messages.add_message(request, messages.SUCCESS, 'Thanks %s your image has been saved' % username)
-
-        return render(request, 'psoriassist/site_nav.html')
 
 
 class Welcome(View):
