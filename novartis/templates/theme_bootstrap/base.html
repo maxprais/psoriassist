@@ -13,7 +13,8 @@
     {% block styles %}
     {% endblock %}
 
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
     <link rel="stylesheet" href={% static 'css/mdb.min.css' %}>
 
@@ -107,5 +108,11 @@
 {% block extra_body_base %}
     {% block extra_body %}{% endblock %}
 {% endblock %}
+
+{% block float_buttons %} {% endblock %}
+
+
+
+
 </body>
 </html>

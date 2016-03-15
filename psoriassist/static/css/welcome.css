@@ -13,3 +13,24 @@
 .userResponse{
     float: right;
 }
+
+.wait {
+    -webkit-animation-delay: 2.2s;
+}
+
+.waitTwo{
+    -webkit-animation-delay: 6s;
+}
+
+.waitThree{
+    -webkit-animation-delay: 14s;
+}
+
+.waitFour{
+      -webkit-animation-delay: 18.5s;
+}
+
+.fadeOut{
+    -webkit-animation-delay: 1.8s;
+}
+
