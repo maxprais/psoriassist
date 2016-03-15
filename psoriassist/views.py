@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from .models import AppUser, User, Lesion
+from .models import AppUser, User, Lesion, ComputerConversation
 from django.contrib import messages
+import json
 
 class Index(View):
     def get(self, request):
@@ -38,14 +39,36 @@ class Welcome(View):
         return render(request, 'psoriassist/welcome.html')
 
 
-# class UserLogin(View):
-#     def get(self):
-#       # user_obj = AppUser()
-        #
-        # date_subscribed = user_obj.calc_date_subscribed()
-        # new_user = AppUser(username=user.username, password=user.password, email=user.email,
-        #                    date_registered=date_subscribed)
-        # new_user.save()
+class SaveConversationHistory(View):
+    def post(self, request):
+
+        msg = json.loads(request.body)
+        message = msg['msg']
+        username = msg['user']
+        username = username[1:]
+
+        if message['sender'] == 'computer':
+            sender = 'computer'
+        else:
+            sender = 'user'
+
+        if message['messageContent']:
+            message_content = message['messageContent']
+        else:
+            message_content = message['response']
+
+        if message['topic']:
+            topic = message['topic']
+        else:
+            topic = False
+
+        user_instance = User.objects.get(username=username)
+        app_user_instance = AppUser.objects.get(user=user_instance)
+        print user_instance
+
+        new_conv = ComputerConversation(user=app_user_instance, sender=sender, message_content=message_content,
+                                        topic=topic)
+        new_conv.save()
 
 
 

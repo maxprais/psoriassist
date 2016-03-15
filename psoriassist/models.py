@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 
 
 class AppUser(models.Model):
@@ -115,5 +116,20 @@ class Appointment(models.Model):
     def __str__(self):
         return "%s %s %s" % (self.user.user.username, self.doctor.name, self.date)
 
+
+class ComputerConversation(models.Model):
+    user = models.ForeignKey(AppUser)
+    sender = models.CharField(max_length=1000)
+    message_content = models.TextField(max_length=2000)
+    date_sent = models.DateTimeField(auto_now_add=True)
+    topic = models.CharField(max_length=1000, null=True)
+
+    def __str__(self):
+        return self.user.user.username
+
+    #
+    # def message_time(self):
+    #     date_sent = datetime.now()
+    #     return date_sent
 
 

@@ -909,7 +909,7 @@ function getScrollbarWidth() {
     // Get the width with scrollbars.
     var widthWithScroll = $inner[0].offsetWidth
 
-    // Remove the divs.
+    // Remove the messageHolders.
     $outer.remove()
 
     // Return the difference between the widths.

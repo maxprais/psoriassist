@@ -7,6 +7,9 @@
     -webkit-animation-delay: 2.3s;
 }
 
-.btn{
+.btnHolder{
+    margin-left: 150px;
+}
+.userResponse{
     float: right;
 }
