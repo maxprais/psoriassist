@@ -9,11 +9,25 @@
 
 .btn{
     float: right;
-<<<<<<< HEAD
 }
 
-.wait{
-    -webkit-animation-delay: 2s;
-=======
->>>>>>> 0dc863c91f137a2e8e27b147aa27f8c5a6b1676c
+.wait {
+    -webkit-animation-delay: 2.2s;
 }
+
+.waitTwo{
+    -webkit-animation-delay: 6s;
+}
+
+.waitThree{
+    -webkit-animation-delay: 14s;
+}
+
+.waitFour{
+      -webkit-animation-delay: 18.5s;
+}
+
+.fadeOut{
+    -webkit-animation-delay: 1.8s;
+}
+
