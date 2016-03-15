@@ -47,15 +47,8 @@ class SaveConversationHistory(View):
         username = msg['user']
         username = username[1:]
 
-        if message['sender'] == 'computer':
-            sender = 'computer'
-        else:
-            sender = 'user'
-
-        if message['messageContent']:
-            message_content = message['messageContent']
-        else:
-            message_content = message['response']
+        sender = message['sender']
+        message_content = message['messageContent']
 
         if message['topic']:
             topic = message['topic']

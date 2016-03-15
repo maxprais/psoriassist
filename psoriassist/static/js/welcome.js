@@ -3,10 +3,9 @@
  */
 
 //Conversation Object
-function SavedMessage(sender, content, response, topic){
+function SavedMessage(sender, content, topic){
     this.sender = sender;
     this.messageContent = content;
-    this.response = response;
     this.topic = topic;
 }
 
@@ -22,13 +21,11 @@ conversation = {};
             var noButton = $('<a></a>', {title: 'welcome', id: 'initNo', class: "btn btn-warning waves-effect waves-light animated zoomIn", text: 'No'});
             $('.screen-wrapper').append(btnHolder);
             btnHolder.append(yesButton, noButton);
-
             conversation.next();
         });
     };
 
      conversation.next = function () {
-        console.log('in');
         $('#initYes').one('click', function () {
             console.log($(this));
             buttonHandler.getBtnData($(this), $(this).next());
@@ -40,7 +37,8 @@ conversation = {};
             var head = $('<p></p>', {
                 title: 'photo',
                 text: 'Great, glad to hear it. You know what they say: ' +
-                'a good laugh and a long sleep are the best cures in the doctor\'s book', class: 'msg animated zoomIn wait'
+                'a good laugh and a long sleep are the best cures in the doctor\'s book', class: 'msg animated zoomIn wait conversation',
+                data: {type: 'computer'}
             });
             $('#2').append(head);
             $(conversation.lesion);
@@ -49,30 +47,31 @@ conversation = {};
     };
 
     conversation.lesion = function () {
-        console.log('lesion');
         messageHolders.create(3);
         var asking_for_picture = $('<p></p>', {
             title: 'photo',
             text: 'I must admit, Micah, the beauty sleep has a done' +
             ' a thing or two for you. You\'re skin looks a bit better- would you like to take a picture of it?',
-            id: 'third', class: 'msg animated zoomIn waitTwo'
+            id: 'third', class: 'msg animated zoomIn waitTwo conversation', data: {type: 'computer'}
         });
         $('#3').append(asking_for_picture);
 
         $('#third').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
+            var btnHolder = $('<div></div>', {class: 'btnHolder'});
             var yesBtn = $('<a></a>', {
                 title: 'photo',
                 id: 'cameraYes',
-                class: "btn btn-success waves-effect waves-light button animated  zoomIn navigate",
+                class: "btn btn-success waves-effect waves-light button animated zoomIn",
                 text: 'Yes'
             });
             var noBtn = $('<a></a>', {
                 title: 'photo',
                 id: 'cameraNo',
-                class: "btn btn-warning waves-effect waves-light animated zoomIn navigate",
+                class: "btn btn-warning waves-effect waves-light animated zoomIn",
                 text: 'No'
             });
-            $('#3').append(yesBtn, noBtn);
+            btnHolder.append(yesBtn, noBtn);
+            $('#3').append(btnHolder);
 
             $('#cameraYes').one('click', function () {
                 console.log($(this));
@@ -81,7 +80,8 @@ conversation = {};
                 var cam = $('<p></p>', {
                     title: 'photo',
                     text: 'Alrighty then. Remember: there are no good pictures; that\'s ' +
-                    'just how your face looks sometimes', class: 'msg animated zoomIn wait'
+                    'just how your face looks sometimes', class: 'msg animated zoomIn wait conversation',
+                    data: {type: 'computer'}
                 });
                 $('#4').append(cam);
             })
@@ -104,7 +104,7 @@ conversation = {};
 
         var warning = $('<p></p>', {
             text: 'Seems like the lesion has gotten a bit worse. Lets take a look at your current PASI graph',
-            class: 'msg animated zoomIn waitTwo'
+            class: 'msg animated zoomIn waitTwo conversation'
         });
         $('#5').append(warning);
 
@@ -131,12 +131,12 @@ conversation = {};
         $('#five').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
             var yesBtn = $('<a></a>', {
                 id: 'consultYes',
-                class: "btn btn-success waves-effect waves-light button animated  zoomIn navigate",
+                class: "btn btn-success waves-effect waves-light button animated  zoomIn",
                 text: 'Yes'
             });
             var noBtn = $('<a></a>', {
                 id: 'consultNo',
-                class: "btn btn-warning waves-effect waves-light animated zoomIn navigate",
+                class: "btn btn-warning waves-effect waves-light animated zoomIn",
                 text: 'No'
             });
             $('#5').append(yesBtn, noBtn);
@@ -169,12 +169,12 @@ conversation = {};
         $('#seven').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
             var yesBtn = $('<a></a>', {
                 id: 'currentMedsYes',
-                class: "btn btn-success waves-effect waves-light button animated  zoomIn navigate",
+                class: "btn btn-success waves-effect waves-light button animated  zoomIn",
                 text: 'Absolutely'
             });
             var noBtn = $('<a></a>', {
                 id: 'currentMedsNo',
-                class: "btn btn-warning waves-effect waves-light animated zoomIn navigate",
+                class: "btn btn-warning waves-effect waves-light animated zoomIn",
                 text: 'Not now'
             });
             $('#7').append(yesBtn, noBtn);
@@ -210,12 +210,12 @@ conversation = {};
         $('#nine').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
             var yesBtn = $('<a></a>', {
                 id: 'otherMedsYes',
-                class: "btn btn-success waves-effect waves-light button animated  zoomIn navigate",
+                class: "btn btn-success waves-effect waves-light button animated  zoomIn",
                 text: 'Absolutely'
             });
             var noBtn = $('<a></a>', {
                 id: 'otherMedsNo',
-                class: "btn btn-warning waves-effect waves-light animated zoomIn navigate",
+                class: "btn btn-warning waves-effect waves-light animated zoomIn",
                 text: 'Not now'
             });
             $('#9').append(yesBtn, noBtn);
@@ -255,12 +255,12 @@ conversation = {};
         $('#eleven').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
             var yesBtn = $('<a></a>', {
                 id: 'manageYes',
-                class: "btn btn-success waves-effect waves-light button animated  zoomIn navigate",
+                class: "btn btn-success waves-effect waves-light button animated  zoomIn",
                 text: 'Yup!'
             });
             var noBtn = $('<a></a>', {
                 id: 'manageNo',
-                class: "btn btn-warning waves-effect waves-light animated zoomIn navigate",
+                class: "btn btn-warning waves-effect waves-light animated zoomIn",
                 text: 'Not now'
             });
             $('#11').append(yesBtn, noBtn);
@@ -284,19 +284,25 @@ conversation = {};
 
     };
 
-    conversation.saveCompConvo = function () {
-        $('.msg').each(function (ind, val) {
-            var newMsg = new SavedMessage('computer', $(val).text(), null, $(val).attr('title'));
-            sendData.toServer(newMsg);
-        });
+    conversation.saveConversation = function () {
+        $('.conversation').each(function(ind, val){
+            var msg = new SavedMessage($(val).data(), $(val).text(), $(val).attr('title'));
+            sendData.toServer((msg));
+        })
     };
-
-    conversation.saveUserResponse = function () {
-        $('.userResponse').each(function (ind, val) {
-            var newUserMsg = new SavedMessage('user', null, $(val).text(), $(val).attr('title'));
-            sendData.toServer(newUserMsg);
-        });
-    }
+    //conversation.saveCompConvo = function () {
+    //    $('.msg').each(function (ind, val) {
+    //        var newMsg = new SavedMessage('computer', $(val).text(), null, $(val).attr('title'));
+    //        sendData.toServer(newMsg);
+    //    });
+    //};
+    //
+    //conversation.saveUserResponse = function () {
+    //    $('.userResponse').each(function (ind, val) {
+    //        var newUserMsg = new SavedMessage('user', null, $(val).text(), $(val).attr('title'));
+    //        sendData.toServer(newUserMsg);
+    //    });
+    //}
 
 })(conversation);
 
@@ -339,7 +345,7 @@ buttonHandler = {};
     };
 
     buttonHandler.createButtonText = function(btnText, btnTitle){
-        var responseHolder = $('<a></a>', {title: btnTitle, text: btnText, class: "userResponse btn btn-success waves-effect waves-light disabled", id:'btn' + ++buttonHandler.idcount});
+        var responseHolder = $('<a></a>', {data:{type: 'user'}, title: btnTitle, text: btnText, class: "userResponse btn btn-success waves-effect waves-light disabled conversation", id:'btn' + ++buttonHandler.idcount});
         $('.screen-wrapper').append(responseHolder);
     }
 
@@ -352,8 +358,9 @@ var sendData = {};
 
     sendData.setupNavigate = function () {
         $('.navigate').on('click', function () {
-            conversation.saveCompConvo();
-            conversation.saveUserResponse();
+            conversation.saveConversation();
+            //conversation.saveCompConvo();
+            //conversation.saveUserResponse();
         })
     };
 
@@ -369,6 +376,7 @@ var sendData = {};
         $.ajax({
             url: '/app/sendata/',
             type: 'post',
+            async: false,
             contentType: 'application/json; charset=UTF-8',
             dataType: 'json',
             data: JSON.stringify(msgObj),
