@@ -12,6 +12,10 @@ class Rate(View):
     def get(self, request):
         return render (request, 'psoriassist/rate_medication.html')
 
+class Medication(View):
+    def get(self, request):
+        return render(request, 'psoriassist/my_medication.html')
+
 class TakePhoto(View):
     def get(self, request):
         return render(request, 'psoriassist/take_photo.html')

@@ -1,10 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'psoriassist/base.html' %}
+{% load staticfiles %}
+{% block js %}
+    <script src={% static 'js/medication.js' %}></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+{% endblock %}
 
-</body>
-</html>
+{% block css %}
+    <link rel="stylesheet" href={% static 'css/medication.css' %}>
+{% endblock %}
+
+{% block body %}
+    <div id="main-container" class="container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-3">
+                <h1 style="position: relative; bottom: 50px;"><b>Current Medication</b></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-md-offset-3">
+
+                <!--Rotating card-->
+                <div class="card-wrapper">
+                    <div id="card-1" class="card-rotating effect__click">
+
+                        <!--Front Side-->
+                        <div class="face card-rotating__front z-depth-1">
+                            <div class="card-up">
+                                <img src="{% static 'images/cosentyx.jpg' %}" class="img-responsive">
+                            </div>
+                            <h4><b>Date started:</b> 15/2/16</h4>
+                            <h5><b>Prescription info:</b> 300 mg by injection once a week for four weeks</h5>
+
+                            <!--Triggering button-->
+                            <a class="rotate-btn" data-card="card-1"><i class="fa fa-repeat"> Click here to
+                                rotate</i></a>
+                        </div>
+                        <!--/.Front Side-->
+
+                        <!--Back Side-->
+                        <div class="face card-rotating__back z-depth-1">
+                            <h4>Heading</h4>
+
+                            <p class="card-content text-center">Subheading
+                                <br> Lorem ipsum</p>
+                            <hr>
+                            Lorem ipsum
+                            <br> Lorem ipsum
+                            <br> Lorem ipsum
+                            <br> Lorem ipsum
+                            <br> Lorem ipsum
+                            <br> Lorem ipsum
+                            <br>
+
+                            <!--Triggering button-->
+                            <a class="rotate-btn" data-card="card-1"><i class="fa fa-undo"> Click here to rotate
+                                back</i></a>
+
+                        </div>
+                        <!--/.Back Side-->
+
+                    </div>
+                </div>
+                <!--/.Rotating card-->
+
+            </div>
+        </div>
+
+        {#        </div>#}
+        {#        <div class="row">#}
+        {#            <div class="col-md-12 col-md-offset-4">#}
+        {#                <img class="current-med" src="{% static 'images/cosentyx.jpg' %}"/>#}
+        {##}
+        {#                <p class="subtext"><b>Date started:</b> 15/2/16</p>#}
+        {##}
+        {#                <p class="subtext"><b>Prescription info:</b> 300 mg by injection once a week for four weeks</p>#}
+        {#            </div>#}
+        {#        </div>#}
+        <div class='row'>
+            <div class="col-md-4">
+                <!--Image Card-->
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <div class="view overlay hm-white-slight z-depth-1">
+                            <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                            <a href="#">
+                                <div class="mask waves-effect"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h5>Card title</h5>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis
+                            nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis
+                            architecto. Ullam voluptatum, facere nihil quidem.</p>
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                        <a href="#" class="btn btn-primary btn-md waves-effect waves-light">View Ratings</a>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+                <!--Image Card-->
+            </div>
+
+            <div class="col-md-4">
+                <!--Image Card-->
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <div class="view overlay hm-white-slight z-depth-1">
+                            <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                            <a href="#">
+                                <div class="mask waves-effect"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h5>Card title</h5>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis
+                            nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis
+                            architecto. Ullam voluptatum, facere nihil quidem.</p>
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                        <a href="#" class="btn btn-primary btn-md waves-effect waves-light">View Ratings</a>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+                <!--Image Card-->
+            </div>
+
+            <div class="col-md-4">
+                <!--Image Card-->
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <div class="view overlay hm-white-slight z-depth-1">
+                            <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
+                            <a href="#">
+                                <div class="mask waves-effect"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h5>Card title</h5>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis
+                            nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis
+                            architecto. Ullam voluptatum, facere nihil quidem.</p>
+                    </div>
+                    <!--Buttons-->
+                    <div class="card-btn text-center">
+                        <a href="#" class="btn btn-primary btn-md waves-effect waves-light">View Ratings</a>
+                    </div>
+                    <!--/.Buttons-->
+                </div>
+                <!--Image Card-->
+            </div>
+
+        </div>
+        {#        <div class="row">#}
+        {#            <div class='medicine_block'>#}
+        {#                <div class="col-md-4">#}
+        {#                    <img class="current-med" src="{% static 'images/cosentyx.jpg' %}"/>#}
+        {##}
+        {#                    <p class="subtext"><b>Date started:</b> 15/2/16</p>#}
+        {##}
+        {#                    <p class="subtext"><b>Prescription info:</b> 300 mg by injection once a week for four weeks</p>#}
+        {##}
+        {#                </div>#}
+        {#                <div class="col-md-4">#}
+        {#                    <img class="current-med" src="{% static 'images/cosentyx.jpg' %}"/>#}
+        {##}
+        {#                    <p class="subtext"><b>Date started:</b> 15/2/16</p>#}
+        {##}
+        {#                    <p class="subtext"><b>Prescription info:</b> 300 mg by injection once a week for four weeks</p>#}
+        {#                </div>#}
+        {#                <div class="col-md-4">#}
+        {#                    <img class="current-med" src="{% static 'images/cosentyx.jpg' %}"/>#}
+        {##}
+        {#                    <p class="subtext"><b>Date started:</b> 15/2/16</p>#}
+        {##}
+        {#                    <p class="subtext"><b>Prescription info:</b> 300 mg by injection once a week for four weeks</p>#}
+        {##}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+    </div>
+{% endblock %}
