@@ -15,6 +15,7 @@ conversation = {};
 
     conversation.init = function () {
         $('#second').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
+
             var btnHolder = $('<div></div>', {class: 'btnHolder'});
             var yesButton = $('<a></a>', {title: 'welcome', id: 'initYes', class: "btn btn-success waves-effect waves-light button animated zoomIn",
                 text: 'Yes'});
