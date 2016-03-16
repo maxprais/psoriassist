@@ -42,6 +42,10 @@ class Welcome(View):
     def get(self, request):
         return render(request, 'psoriassist/welcome.html')
 
+class Medicine(View):
+    def get(self, request):
+        return render(request, 'psoriassist/my_medication.html')
+
 
 class SaveConversationHistory(View):
     def post(self, request):

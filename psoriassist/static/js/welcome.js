@@ -128,7 +128,7 @@ conversation = {};
         $('#pasi').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
             chartHandler.createPasiChart();
             chartHandler.viewPasiChart();
-            
+
             var flareUp = $('<p></p>', {
                 text: 'Not only has your lesion worsened but ' +
                 'I actually predict a more serious flare-up soon. Try in the next few days to get more sleep, exercise a bit more and' +
