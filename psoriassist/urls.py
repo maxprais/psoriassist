@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^camera/$', views.TakePhoto.as_view(), name='camera'),
     url(r'^welcome/$', views.Welcome.as_view(), name='welcome'),
     url(r'^sendata/$', views.SaveConversationHistory.as_view(), name='data'),
+    url(r'^rload/$', views.ReloadWelcomePage.as_view(), name='rload')
 ]

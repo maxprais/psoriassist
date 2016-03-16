@@ -64,4 +64,15 @@ class SaveConversationHistory(View):
         new_conv.save()
 
 
+class ReloadWelcomePage(View):
+    def get(self, request):
+
+        conversations = ComputerConversation.objects.all()
+
+        for i in range(len(conversations)):
+            print conversations[i].message_content
+
+
+        return render(request, 'psoriassist/welcome.html')
+
 
