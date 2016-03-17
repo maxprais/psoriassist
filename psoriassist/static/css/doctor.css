@@ -1,0 +1,29 @@
+#datetimepicker {
+    border: 1px solid;
+    width: 150px;
+    height: 18px;
+    color: black;
+}
+
+#datetimepicker1 {
+    border: 1px solid;
+    width: 150px;
+    height: 18px;
+    color: black;
+}
+
+.bottom {
+    position: relative;
+    bottom: 29px;
+}
+
+#map {
+
+    width: 500px;
+    height: 400px;
+    background-color: #CCC;
+}
+
+.textAbove{
+    font-size: 35px;
+}

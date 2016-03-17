@@ -1,0 +1,21 @@
+.current-med{
+
+    height: 150px;
+    width: 200px;
+    position: relative;
+    bottom: 80px;
+}
+.current-med:hover{
+    cursor: pointer;
+}
+
+.subtext{
+    line-height: 1;
+    font-size: 1rem;
+}
+
+.medicine_block{
+    display: inline-block;
+}
+
+

@@ -12,6 +12,18 @@ class Rate(View):
     def get(self, request):
         return render (request, 'psoriassist/rate_medication.html')
 
+class Medication(View):
+    def get(self, request):
+        return render(request, 'psoriassist/my_medication.html')
+
+class Doctor(View):
+    def get(self, request):
+        return render(request, 'psoriassist/view_doctor.html')
+
+class Emotion_Management(View):
+    def get(self, request):
+        return render(request, 'psoriassist/manage_stress.html')
+
 class TakePhoto(View):
     def get(self, request):
         return render(request, 'psoriassist/take_photo.html')
@@ -37,6 +49,10 @@ class TakePhoto(View):
 class Welcome(View):
     def get(self, request):
         return render(request, 'psoriassist/welcome.html')
+
+class Medicine(View):
+    def get(self, request):
+        return render(request, 'psoriassist/my_medication.html')
 
 
 class SaveConversationHistory(View):

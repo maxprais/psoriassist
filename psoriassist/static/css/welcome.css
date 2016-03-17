@@ -24,7 +24,7 @@
 }
 
 .waitThree{
-    -webkit-animation-delay: 14s;
+    -webkit-animation-delay: 10s;
 }
 
 .waitFour{
@@ -34,4 +34,6 @@
 .fadeOut{
     -webkit-animation-delay: 1.8s;
 }
+
+
 

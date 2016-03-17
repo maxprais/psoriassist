@@ -1,7 +1,8 @@
 /*Created by User on 13/03/2016.*/
 
 //Conversation Object
-function SavedMessage(sender, content, topic){
+
+function SavedMessage(sender, content, topic) {
     this.sender = sender;
     this.messageContent = content;
     this.topic = topic;
@@ -24,17 +25,27 @@ conversation = {};
 
 
         $('#second').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
+
             var btnHolder = $('<div></div>', {class: 'btnHolder'});
-            var yesButton = $('<a></a>', {title: 'welcome', id: 'initYes', class: "btn btn-success waves-effect waves-light button animated zoomIn",
-                text: 'Yes'});
-            var noButton = $('<a></a>', {title: 'welcome', id: 'initNo', class: "btn btn-warning waves-effect waves-light animated zoomIn", text: 'No'});
+            var yesButton = $('<a></a>', {
+                title: 'welcome',
+                id: 'initYes',
+                class: "btn btn-success waves-effect waves-light button animated zoomIn",
+                text: 'Yes'
+            });
+            var noButton = $('<a></a>', {
+                title: 'welcome',
+                id: 'initNo',
+                class: "btn btn-warning waves-effect waves-light animated zoomIn",
+                text: 'No'
+            });
             $('.screen-wrapper').append(btnHolder);
             btnHolder.append(yesButton, noButton);
-            conversation.next();
+            conversation.analyze();
         });
     };
 
-     conversation.next = function () {
+    conversation.next = function () {
         $('#initYes').one('click', function () {
             console.log($(this));
             buttonHandler.getBtnData($(this), $(this).next());
@@ -94,11 +105,14 @@ conversation = {};
                 });
                 $('#4').append(cam);
             })
+
+            //-------->>>>>>TO DO
+            //DIRECT TO TAKING A PICTURE OF A LESION PART
         });
 
     };
 
-    conversation.analyze = function(){
+    conversation.analyze = function () {
         messageHolders.create(5);
         var analyze = $('<p></p>', {
             text: 'Great! Bare with me for a moment while I analyze this..',
@@ -113,60 +127,68 @@ conversation = {};
 
         var warning = $('<p></p>', {
             text: 'Seems like the lesion has gotten a bit worse. Lets take a look at your current PASI graph',
-            class: 'msg animated zoomIn waitTwo conversation'
+            class: 'msg animated zoomIn waitTwo conversation',
+            id: 'pasi'
         });
         $('#5').append(warning);
 
         //---------->>>>>>>>>>>TO DO
         //NEED TO PULL UP PASI GRAPH!!!!!!!!!!!!!
+        $('#pasi').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
+            chartHandler.createPasiChart();
+            chartHandler.viewPasiChart();
 
-        var flareUp = $('<p></p>', {
-            text: 'Not only has your lesion worsened but ' +
-            'I actually predict a more serious flare-up soon. Try in the next few days to get more sleep, exercise a bit more and' +
-            ' focus on a better diet to reduce the likelihood of a flare-up.',
-            class: 'msg animated zoomIn waitThree'
-        });
-        $('#5').append(flareUp);
-
-        var consult = $('<p></p>', {
-            text: 'Would you like to have a consultation with a doctor?',
-            class: 'msg animated zoomIn waitFour',
-            id: 'five'
-        });
-        $('#5').append(consult);
-
-
-
-        $('#five').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
-            var yesBtn = $('<a></a>', {
-                id: 'consultYes',
-                class: "btn btn-success waves-effect waves-light button animated  zoomIn",
-                text: 'Yes'
+            var flareUp = $('<p></p>', {
+                text: 'Not only has your lesion worsened but ' +
+                'I actually predict a more serious flare-up soon. Try in the next few days to get more sleep, exercise a bit more and' +
+                ' focus on a better diet to reduce the likelihood of a flare-up.',
+                class: 'msg animated zoomIn waitTwo'
             });
-            var noBtn = $('<a></a>', {
-                id: 'consultNo',
-                class: "btn btn-warning waves-effect waves-light animated zoomIn",
-                text: 'No'
-            });
-            $('#5').append(yesBtn, noBtn);
+            $('#5').append(flareUp);
 
-            $('#consultYes').one('click', function () {
-                console.log($(this));
-                buttonHandler.getBtnData($(this), $(this).next());
-                messageHolders.create(6);
-                var doctor = $('<p></p>', {
-                    text: 'Your wish is my command!', class: 'msg animated zoomIn wait'
+            var consult = $('<p></p>', {
+                text: 'Would you like to have a consultation with a doctor?',
+                class: 'msg animated zoomIn waitThree',
+                id: 'five'
+            });
+            $('#5').append(consult);
+
+
+            $('#five').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
+                var yesBtn = $('<a></a>', {
+                    id: 'consultYes',
+                    class: "btn btn-success waves-effect waves-light button animated  zoomIn navigate",
+                    text: 'Yes'
                 });
-                $('#6').append(doctor);
-                //------->>>>>>TO DO
-                //NEED TO PULL UP DOCTOR PAGE. OFFER OPTION OF DOCTOR COHEN OR OTHER DOCTORS NEARBY. ONCE DOCTOR IS PICKED
-                //A CALENDAR IS PULLED UP WITH ALL RELEVANT OPEN TIME SLOTS
-            })
+                var noBtn = $('<a></a>', {
+                    id: 'consultNo',
+                    class: "btn btn-warning waves-effect waves-light animated zoomIn navigate",
+                    text: 'No'
+                });
+                $('#5').append(yesBtn, noBtn);
+
+                $('#consultYes').one('click', function () {
+                    console.log($(this));
+                    buttonHandler.getBtnData($(this), $(this).next());
+                    messageHolders.create(6);
+                    var doctor = $('<p></p>', {
+                        text: 'Your wish is my command!', class: 'msg animated zoomIn wait'
+                    });
+                    $('#6').append(doctor);
+                    //------->>>>>>TO DO
+                    //NEED TO PULL UP DOCTOR PAGE. OFFER OPTION OF DOCTOR COHEN OR OTHER DOCTORS NEARBY. ONCE DOCTOR IS PICKED
+                    //A CALENDAR IS PULLED UP WITH ALL RELEVANT OPEN TIME SLOTS
+                })
+            });
         });
 
     };
 
+<<<<<<< HEAD
     conversation.medicine = function(){
+=======
+    conversation.medicine = function () {
+>>>>>>> 14eb06172658d07288efb6f125387654c04bc4ee
         messageHolders.create(7);
         var meds = $('<p></p>', {
             text: 'Would you like to follow Dr. Cohen\'s advice and review your current medicine?',
@@ -207,8 +229,12 @@ conversation = {};
 
     };
 
+<<<<<<< HEAD
 
     conversation.otherMedicine = function(){
+=======
+    conversation.otherMedicine = function () {
+>>>>>>> 14eb06172658d07288efb6f125387654c04bc4ee
         messageHolders.create(9);
         var otherMeds = $('<p></p>', {
             text: 'Seems like your current medication treatments could be better. Would you like to see other options?',
@@ -251,7 +277,7 @@ conversation = {};
     };
 
 
-    conversation.manageEmotion = function(){
+    conversation.manageEmotion = function () {
 
         messageHolders.create(11);
         var manage = $('<p></p>', {
@@ -319,14 +345,13 @@ conversation = {};
 $(conversation.init);
 
 
-
 messageHolders = {};
 
-(function(messageHolders){
+(function (messageHolders) {
 
     messageHolders.ids = 0;
     messageHolders.create = function (n) {
-        var row = $('<div></div>', {class: 'row', id:'row'+ ++messageHolders.ids});
+        var row = $('<div></div>', {class: 'row', id: 'row' + ++messageHolders.ids});
         var col = $('<div></div>', {class: 'col-md-8 col-md-offset-2'});
         var wrapper = $('<div></div>', {class: 'screen-wrapper', id: n});
 
@@ -341,7 +366,7 @@ messageHolders = {};
 
 buttonHandler = {};
 
-(function(buttonHandler){
+(function (buttonHandler) {
 
     buttonHandler.idcount = 0;
 
@@ -355,7 +380,8 @@ buttonHandler = {};
     };
 
     buttonHandler.createButtonText = function(btnText, btnTitle){
-        var responseHolder = $('<a></a>', {data:{type: 'user'}, title: btnTitle, text: btnText, class: "userResponse btn btn-success waves-effect waves-light disabled conversation", id:'btn' + ++buttonHandler.idcount});
+        var responseHolder = $('<a></a>', {data:{type: 'user'}, title: btnTitle, text: btnText, class: "userResponse btn btn-success waves-effect waves-light disabled conversation",
+            id:'btn' + ++buttonHandler.idcount});
         $('.screen-wrapper').append(responseHolder);
     }
 
@@ -364,7 +390,7 @@ buttonHandler = {};
 
 var sendData = {};
 
-(function(sendData){
+(function (sendData) {
 
     sendData.setupNavigate = function () {
         $('.navigate').on('click', function () {
@@ -376,7 +402,7 @@ var sendData = {};
 
     $(sendData.setupNavigate);
 
-    sendData.toServer = function(msg){
+    sendData.toServer = function (msg) {
 
         var msgObj = {
             msg: msg,
@@ -390,14 +416,13 @@ var sendData = {};
             contentType: 'application/json; charset=UTF-8',
             dataType: 'json',
             data: JSON.stringify(msgObj),
-            success: function(res){
+            success: function (res) {
 
             }
         })
     };
 
 })(sendData);
-
 
 
 //
@@ -412,3 +437,35 @@ var sendData = {};
 //     window.localStorage.setItem('conversationText', JSON.stringify(sender, text));
 //}
 
+chartHandler = {};
+
+(function (chartHandler) {
+    chartHandler.createPasiChart = function () {
+        var chartHolder = $('<canvas></canvas>', {id: 'pasiChart'})
+        $('#5').append(chartHolder);
+    };
+
+
+    chartHandler.viewPasiChart = function () {
+
+        var ctx = document.getElementById("pasiChart").getContext('2d');
+        var option = {
+            responsive: true
+        };
+        var data = {
+            labels: ["1", "3", "6", "7", "9", "10", "13", "15", "18", "23", "25", "28", "31"],
+            datasets: [
+                {
+                    label: "MARCH PASI SCORE",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [25, 14, 18, 7, 32, 6, 5, 8, 9, 18]
+                }]
+        };
+        var myLineChart = new Chart(ctx).Line(data, option);
+    }
+})(chartHandler);
