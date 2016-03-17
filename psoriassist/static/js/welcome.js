@@ -184,11 +184,8 @@ conversation = {};
 
     };
 
-<<<<<<< HEAD
-    conversation.medicine = function(){
-=======
+
     conversation.medicine = function () {
->>>>>>> 14eb06172658d07288efb6f125387654c04bc4ee
         messageHolders.create(7);
         var meds = $('<p></p>', {
             text: 'Would you like to follow Dr. Cohen\'s advice and review your current medicine?',
@@ -229,12 +226,7 @@ conversation = {};
 
     };
 
-<<<<<<< HEAD
-
-    conversation.otherMedicine = function(){
-=======
     conversation.otherMedicine = function () {
->>>>>>> 14eb06172658d07288efb6f125387654c04bc4ee
         messageHolders.create(9);
         var otherMeds = $('<p></p>', {
             text: 'Seems like your current medication treatments could be better. Would you like to see other options?',

@@ -4,25 +4,31 @@ from .models import AppUser, User, Lesion, ComputerConversation
 from django.contrib import messages
 import json
 
+
 class Index(View):
     def get(self, request):
         return render(request, 'psoriassist/welcome.html')
+
 
 class Rate(View):
     def get(self, request):
         return render (request, 'psoriassist/rate_medication.html')
 
+
 class Medication(View):
     def get(self, request):
         return render(request, 'psoriassist/my_medication.html')
+
 
 class Doctor(View):
     def get(self, request):
         return render(request, 'psoriassist/view_doctor.html')
 
+
 class Emotion_Management(View):
     def get(self, request):
         return render(request, 'psoriassist/manage_stress.html')
+
 
 class TakePhoto(View):
     def get(self, request):
@@ -90,26 +96,6 @@ class ReloadWelcomePage(View):
             ids.append(id)
 
         return HttpResponse(json.dumps(ids))
-
-
-
-        # messages = msg['msg']
-        # username = msg['user']
-        # username = username[1:]
-        # comp_list = []
-        # comp_message, user_message, index = '', '', ''
-        #
-        # for i in range(len(messages)):
-        #     index = messages['id']
-        # for j in range(len(messages['messages'])):
-        #     comp_list += ' ' + messages['messages'][j]['text']
-        # for k in range(len(messages['responses'])):
-        #     user_message = messages['responses'][0]['text']
-        #
-        # for letter in comp_list:
-        #     comp_message += letter
-        # comp_message = comp_message[1:]
-        #
 
 
 
