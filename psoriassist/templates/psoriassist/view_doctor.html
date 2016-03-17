@@ -1,10 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'psoriassist/base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block js %}
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6BILxFTXEHVNL4ZqjS26UR5icHaVPjyE&libraries=places"></script>
+    <script src={% static "js/jquery.datetimepicker.full.min.js" %}></script>
+    <script src={% static 'js/doctor.js' %}></script>
+
+
+
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href={% static 'css/doctor.css' %}>
+    <link rel="stylesheet" href={% static 'css/jquery.datetimepicker.css' %}>
+{% endblock %}
+
+{% block body %}
+    <div  id="main-container" class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <span class="textAbove" style="position: relative; bottom: 50px;"><b>Current Doctor</b></span>
+            <span class = 'textAbove' style="position: relative; bottom: 50px; float:right;"><b>Dermatologists Nearby</b></span>
+        </div>
+        <div class="col-md-8 col-md-offset-5">
+
+            </div>
+    </div>
+    <div class='row'>
+        <div class="col-md-6">
+
+            <!--Rotating card-->
+            <div class="card-wrapper">
+                <div id="card-1" class="card-rotating effect__click">
+
+                    <!--Front Side-->
+                    <div class="face card-rotating__front z-depth-1">
+                        <div class="card-up">
+                            <img src="{% static 'images/Ramat.jpg' %}" class="img-responsive">
+                        </div>
+                        <div class="avatar"><img
+                                src="{% static 'images/friedman.jpg' %}"
+                                class="img-circle img-responsive">
+                        </div>
+                        <h4>Dr. David Friedman</h4>
+
+                        <p>Ramat Aviv Medical Center</p>
+
+                        <p>Brodetsky 43, Entrance A, 2nd Floor</p>
+
+                        <!--Triggering button-->
+                        <a class="rotate-btn" data-card="card-1" style="position: relative; bottom:
+                            30px;"><i class="fa fa-repeat"> More Info/Schedule Appointment</i></a>
+                    </div>
+                    <!--/.Front Side-->
+
+                    <!--Back Side-->
+                    <div class="face card-rotating__back z-depth-1">
+                        <h4>Dr. David Friedman, MD</h4>
+
+                        <p class="card-content text-center">Phone: 03-612-2322
+                            <br> Email: Tel-aviv@Drdavidfriedman.co.il</p>
+                        <hr>
+                        <b>Schedule an IN-PERSON visit:</b>
+                        <br>
+                        <br> Selected Date and Time: <input id="datetimepicker" type="text">
+                        <br> <a class="btn btn-success btn-rounded waves-effect waves-light">Submit</a>
+                        <hr>
+                        <b>Schedule Telemedicine Consultation</b>
+                        <br> Selected Date and Time: <input id="datetimepicker1" type="text">
+                        <br><a class="btn btn-success btn-rounded waves-effect waves-light">Submit</a>
+                        <br>
+
+                        <!--Triggering button-->
+                        <a class="rotate-btn bottom" data-card="card-1"><i class="fa fa-undo"> Click here to rotate
+                            back</i></a>
+
+
+                    </div>
+                    <!--/.Back Side-->
+
+                </div>
+            </div>
+            <!--/.Rotating card-->
+
+        </div>
+        <div class='col-md-3'>
+            <div id = 'map'></div>
+        </div>
+    </div>
+
+
+    </div>
+{% endblock %}

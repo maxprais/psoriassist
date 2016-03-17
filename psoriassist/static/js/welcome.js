@@ -32,7 +32,7 @@ conversation = {};
             });
             $('.screen-wrapper').append(btnHolder);
             btnHolder.append(yesButton, noButton);
-            conversation.next();
+            conversation.analyze();
         });
     };
 

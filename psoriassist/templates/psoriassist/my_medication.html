@@ -2,8 +2,9 @@
 {% load staticfiles %}
 
 {% block js %}
+
     <script src={% static 'js/medication.js' %}></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 {% endblock %}
 
 {% block css %}
@@ -22,14 +23,14 @@
 
                 <!--Rotating card-->
                 <div class="card-wrapper">
-                    <div id="card-1" class="card-rotating effect__click">
+                    <div id="card-1" class="card-rotating effect__click ">
 
                         <!--Front Side-->
                         <div class="face card-rotating__front z-depth-1">
                             <div class="card-up">
                                 <img src="{% static 'images/cosentyx.jpg' %}" class="img-responsive">
                             </div>
-                            <h4><b>Date started:</b> 15/2/16</h4>
+                            <h5><b>Date started:</b> 15/2/16</h5>
                             <h5><b>Prescription info:</b> 300 mg by injection once a week for four weeks</h5>
 
                             <!--Triggering button-->
@@ -40,18 +41,24 @@
 
                         <!--Back Side-->
                         <div class="face card-rotating__back z-depth-1">
-                            <h4>Heading</h4>
+                            <h4>Medication Ratings</h4>
 
-                            <p class="card-content text-center">Subheading
-                                <br> Lorem ipsum</p>
+                            <p class="card-content text-center">For Cosentyx</p>
                             <hr>
-                            Lorem ipsum
-                            <br> Lorem ipsum
-                            <br> Lorem ipsum
-                            <br> Lorem ipsum
-                            <br> Lorem ipsum
-                            <br> Lorem ipsum
+                            <br> <b>Treatment effectiveness:</b>
                             <br>
+
+                            <p style="color:orange;">7.8/10</p>
+                            <br>
+                            <br> <b>Average emotional wellness while on treatment</b>
+                            <br>
+
+                            <p style="color:green"> 8.7/10</p>
+                            <br>
+                            <br> <b>Adherence score</b>
+                            <br>
+
+                            <p style="color:green">8.5/10</p>
 
                             <!--Triggering button-->
                             <a class="rotate-btn" data-card="card-1"><i class="fa fa-undo"> Click here to rotate
@@ -67,140 +74,173 @@
             </div>
         </div>
 
-        {#        </div>#}
-        {#        <div class="row">#}
-        {#            <div class="col-md-12 col-md-offset-4">#}
-        {#                <img class="current-med" src="{% static 'images/cosentyx.jpg' %}"/>#}
-        {##}
-        {#                <p class="subtext"><b>Date started:</b> 15/2/16</p>#}
-        {##}
-        {#                <p class="subtext"><b>Prescription info:</b> 300 mg by injection once a week for four weeks</p>#}
-        {#            </div>#}
-        {#        </div>#}
+        <div class="row">
+            <div class="col-md-12 col-md-offset-3">
+                <h1 style="position: relative;"><b>Past Medications</b></h1>
+            </div>
+        </div>
+
         <div class='row'>
             <div class="col-md-4">
                 <!--Image Card-->
-                <div class="card hoverable">
-                    <div class="card-image">
-                        <div class="view overlay hm-white-slight z-depth-1">
-                            <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
-                            <a href="#">
-                                <div class="mask waves-effect"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h5>Card title</h5>
+                <div class="card-wrapper">
+                    <div id="card-2" class="card-rotating effect__click ">
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis
-                            nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis
-                            architecto. Ullam voluptatum, facere nihil quidem.</p>
+                        <!--Front Side-->
+                        <div class="face card-rotating__front z-depth-1">
+                            <div class="card-up">
+                                <img src="{% static 'images/dovonex.jpg' %}" class="img-responsive">
+                            </div>
+                            <p><b>Date started:</b> 14/5/15</p>
+
+                            <p><b>Prescription info:</b> Apply a thin layer of Dovonex cream to the affected area. Do
+                                not use two doses at once</p>
+
+                            <!--Triggering button-->
+                            <a class="rotate-btn" data-card="card-2"><i class="fa fa-repeat"> Click here to
+                                rotate</i></a>
+                        </div>
+                        <!--/.Front Side-->
+
+                        <!--Back Side-->
+                        <div class="face card-rotating__back z-depth-1">
+                            <h4>Medication Ratings</h4>
+
+                            <p class="card-content text-center">For Dovonex</p>
+                            <hr>
+                            <br> <b>Treatment effectiveness:</b>
+                            <br>
+
+                            <p style="color:orange;">5.6/10</p>
+                            <br>
+                            <br> <b>Average emotional wellness while on treatment</b>
+                            <br>
+
+                            <p style="color:red"> 2.9/10</p>
+                            <br>
+                            <br> <b>Adherence score</b>
+                            <br>
+
+                            <p style="color:green">7.5/10</p>
+
+                            <!--Triggering button-->
+                            <a class="rotate-btn" data-card="card-2"><i class="fa fa-undo"> Click here to rotate
+                                back</i></a>
+
+                        </div>
+                        <!--/.Back Side-->
+
                     </div>
-                    <!--Buttons-->
-                    <div class="card-btn text-center">
-                        <a href="#" class="btn btn-primary btn-md waves-effect waves-light">View Ratings</a>
-                    </div>
-                    <!--/.Buttons-->
                 </div>
-                <!--Image Card-->
             </div>
 
             <div class="col-md-4">
-                <!--Image Card-->
-                <div class="card hoverable">
-                    <div class="card-image">
-                        <div class="view overlay hm-white-slight z-depth-1">
-                            <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
-                            <a href="#">
-                                <div class="mask waves-effect"></div>
-                            </a>
+
+                <div class="card-wrapper">
+                    <div id="card-3" class="card-rotating effect__click ">
+
+                        <!--Front Side-->
+                        <div class="face card-rotating__front z-depth-1">
+                            <div class="card-up">
+                                <img src="{% static 'images/Silkis.jpg' %}" class="img-responsive">
+                            </div>
+                            <p><b>Date started:</b> 14/3/15</p>
+
+                            <p><b>Prescription info:</b> Ointment should be applied to the psoriasis affected areas
+                                twice per day. Not more than 30 g of ointment should be used per day</p>
+
+                            <!--Triggering button-->
+                            <a class="rotate-btn" data-card="card-3"><i class="fa fa-repeat"> Click here to
+                                rotate</i></a>
                         </div>
-                    </div>
-                    <div class="card-content">
-                        <h5>Card title</h5>
+                        <!--/.Front Side-->
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis
-                            nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis
-                            architecto. Ullam voluptatum, facere nihil quidem.</p>
+                        <!--Back Side-->
+                        <div class="face card-rotating__back z-depth-1">
+                            <h4>Medication Ratings</h4>
+
+                            <p class="card-content text-center">For Silkis</p>
+                            <hr>
+                            <br> <b>Treatment effectiveness:</b>
+                            <br>
+
+                            <p style="color:red;">2.8/10</p>
+                            <br>
+                            <br> <b>Average emotional wellness while on treatment</b>
+                            <br>
+
+                            <p style="color:red"> 3.7/10</p>
+                            <br>
+                            <br> <b>Adherence score</b>
+                            <br>
+
+                            <p style="color:darkred">1.5/10</p>
+
+                            <!--Triggering button-->
+                            <a class="rotate-btn" data-card="card-3"><i class="fa fa-undo"> Click here to rotate
+                                back</i></a>
+
+                        </div>
+                        <!--/.Back Side-->
+
                     </div>
-                    <!--Buttons-->
-                    <div class="card-btn text-center">
-                        <a href="#" class="btn btn-primary btn-md waves-effect waves-light">View Ratings</a>
-                    </div>
-                    <!--/.Buttons-->
                 </div>
-                <!--Image Card-->
             </div>
-
             <div class="col-md-4">
-                <!--Image Card-->
-                <div class="card hoverable">
-                    <div class="card-image">
-                        <div class="view overlay hm-white-slight z-depth-1">
-                            <img src="http://mdbootstrap.com/images/reg/reg%20(2).jpg" class="img-responsive" alt="">
-                            <a href="#">
-                                <div class="mask waves-effect"></div>
-                            </a>
+                <div class="card-wrapper">
+                    <div id="card-4" class="card-rotating effect__click ">
+
+                        <!--Front Side-->
+                        <div class="face card-rotating__front z-depth-1">
+                            <div class="card-up">
+                                <img src="{% static 'images/Eumovate.jpg' %}" class="img-responsive">
+                            </div>
+                            <p><b>Date started:</b> 13/5/14</p>
+
+                            <p><b>Prescription info:</b> Apply thinly and gently rub in using only enough to
+                                cover the entire affected area once or twice a day until improvement occurs</p>
+
+                            <!--Triggering button-->
+                            <a class="rotate-btn" data-card="card-4"><i class="fa fa-repeat"> Click here to
+                                rotate</i></a>
                         </div>
-                    </div>
-                    <div class="card-content">
-                        <h5>Card title</h5>
+                        <!--/.Front Side-->
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id amet, quisquam modi nobis
-                            nostrum iusto incidunt dolore assumenda delectus officia quia, sequi eum perspiciatis
-                            architecto. Ullam voluptatum, facere nihil quidem.</p>
+                        <!--Back Side-->
+                        <div class="face card-rotating__back z-depth-1">
+                            <h4>Medication Ratings</h4>
+
+                            <p class="card-content text-center">For Eumovate</p>
+                            <hr>
+                            <br> <b>Treatment effectiveness:</b>
+                            <br>
+
+                            <p style="color:lime;">9.8/10</p>
+                            <br>
+                            <br> <b>Average emotional wellness while on treatment</b>
+                            <br>
+
+                            <p style="color:darkred"> 1.7/10</p>
+                            <br>
+                            <br> <b>Adherence score</b>
+                            <br>
+
+                            <p style="color:orange">5.5/10</p>
+
+                            <!--Triggering button-->
+                            <a class="rotate-btn" data-card="card-4"><i class="fa fa-undo"> Click here to rotate
+                                back</i></a>
+
+                        </div>
+                        <!--/.Back Side-->
+
                     </div>
-                    <!--Buttons-->
-                    <div class="card-btn text-center">
-                        <a href="#" class="btn btn-primary btn-md waves-effect waves-light">View Ratings</a>
-                    </div>
-                    <!--/.Buttons-->
                 </div>
                 <!--Image Card-->
             </div>
 
         </div>
-        {#        <div class="row">#}
-        {#            <div class='medicine_block'>#}
-        {#                <div class="col-md-4">#}
-        {#                    <img class="current-med" src="{% static 'images/cosentyx.jpg' %}"/>#}
-        {##}
-        {#                    <p class="subtext"><b>Date started:</b> 15/2/16</p>#}
-        {##}
-        {#                    <p class="subtext"><b>Prescription info:</b> 300 mg by injection once a week for four weeks</p>#}
-        {##}
-        {#                </div>#}
-        {#                <div class="col-md-4">#}
-        {#                    <img class="current-med" src="{% static 'images/cosentyx.jpg' %}"/>#}
-        {##}
-        {#                    <p class="subtext"><b>Date started:</b> 15/2/16</p>#}
-        {##}
-        {#                    <p class="subtext"><b>Prescription info:</b> 300 mg by injection once a week for four weeks</p>#}
-        {#                </div>#}
-        {#                <div class="col-md-4">#}
-        {#                    <img class="current-med" src="{% static 'images/cosentyx.jpg' %}"/>#}
-        {##}
-        {#                    <p class="subtext"><b>Date started:</b> 15/2/16</p>#}
-        {##}
-        {#                    <p class="subtext"><b>Prescription info:</b> 300 mg by injection once a week for four weeks</p>#}
-        {##}
-        {#                </div>#}
-        {#            </div>#}
-        {#        </div>#}
     </div>
+
 {% endblock %}
-            <div class="col-md-12 col-md-offset-2">
-                <div class="screen-wrapper">
-                    <h1 style='position:relative; bottom:50px'>MY CURRENT MEDICATION</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-md-offset-2">
-                <div class="screen-wrapper">
-                    <img class = 'current-med' src="{% static "images/cosentyx.jpg" %}"></img>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+
