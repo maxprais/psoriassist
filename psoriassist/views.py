@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.views.generic import View
 from .models import AppUser, User, Lesion, ComputerConversation
 from django.contrib import messages
@@ -43,36 +43,57 @@ class SaveConversationHistory(View):
     def post(self, request):
 
         msg = json.loads(request.body)
-        message = msg['msg']
+        messages = msg['msg']
         username = msg['user']
         username = username[1:]
+        index = messages['id']
 
-        sender = message['sender']
-        message_content = message['messageContent']
+        saved_convo = ComputerConversation.objects.filter(index=index)
+        if not saved_convo:
+            user_instance = User.objects.get(username=username)
+            app_user_instance = AppUser.objects.get(user=user_instance)
+            print user_instance
 
-        if message['topic']:
-            topic = message['topic']
-        else:
-            topic = False
+            new_conv = ComputerConversation(user=app_user_instance, index=index)
+            new_conv.save()
 
-        user_instance = User.objects.get(username=username)
-        app_user_instance = AppUser.objects.get(user=user_instance)
-        print user_instance
-
-        new_conv = ComputerConversation(user=app_user_instance, sender=sender, message_content=message_content,
-                                        topic=topic)
-        new_conv.save()
+        return HttpResponse(json.dumps({'result': 'success'}))
 
 
 class ReloadWelcomePage(View):
     def get(self, request):
-
+        conversations_id = []
         conversations = ComputerConversation.objects.all()
+        print conversations
 
         for i in range(len(conversations)):
-            print conversations[i].message_content
+            conversations_id.append(conversations[i].index)
+
+        ids = []
+        for id in conversations_id:
+            ids.append(id)
+
+        return HttpResponse(json.dumps(ids))
 
 
-        return render(request, 'psoriassist/welcome.html')
+
+        # messages = msg['msg']
+        # username = msg['user']
+        # username = username[1:]
+        # comp_list = []
+        # comp_message, user_message, index = '', '', ''
+        #
+        # for i in range(len(messages)):
+        #     index = messages['id']
+        # for j in range(len(messages['messages'])):
+        #     comp_list += ' ' + messages['messages'][j]['text']
+        # for k in range(len(messages['responses'])):
+        #     user_message = messages['responses'][0]['text']
+        #
+        # for letter in comp_list:
+        #     comp_message += letter
+        # comp_message = comp_message[1:]
+        #
+
 
 

@@ -1,6 +1,4 @@
-/**
- * Created by User on 13/03/2016.
- */
+/*Created by User on 13/03/2016.*/
 
 //Conversation Object
 function SavedMessage(sender, content, topic){
@@ -14,6 +12,17 @@ conversation = {};
 (function (conversation) {
 
     conversation.init = function () {
+
+        //var welcomeUser = $('<p></p>', {class: 'animated zoomIn msg conversation', title: 'welcome', id:'first',
+        //    data:{type: 'computer', text: 'Hey, ' + $('.username').text()}});
+        //var howIsUser = $('<p></p>', {class: 'animated zoomIn msg conversation', title: 'welcome', id:'second',
+        //    data:{type: 'computer', text: 'How are you doing today? Did you sleep well last night?'}});
+        //
+        //$('.screen-wrapper').append(welcomeUser, howIsUser);
+
+
+
+
         $('#second').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatione', function () {
             var btnHolder = $('<div></div>', {class: 'btnHolder'});
             var yesButton = $('<a></a>', {title: 'welcome', id: 'initYes', class: "btn btn-success waves-effect waves-light button animated zoomIn",
@@ -157,7 +166,7 @@ conversation = {};
 
     };
 
-    conversation.medicine= function(){
+    conversation.medicine = function(){
         messageHolders.create(7);
         var meds = $('<p></p>', {
             text: 'Would you like to follow Dr. Cohen\'s advice and review your current medicine?',
@@ -197,6 +206,7 @@ conversation = {};
         })
 
     };
+
 
     conversation.otherMedicine = function(){
         messageHolders.create(9);

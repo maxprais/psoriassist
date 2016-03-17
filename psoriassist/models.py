@@ -119,10 +119,8 @@ class Appointment(models.Model):
 
 class ComputerConversation(models.Model):
     user = models.ForeignKey(AppUser)
-    sender = models.CharField(max_length=1000)
-    message_content = models.TextField(max_length=2000)
     date_sent = models.DateTimeField(auto_now_add=True)
-    topic = models.CharField(max_length=1000, null=True)
+    index = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.user.username
@@ -132,4 +130,5 @@ class ComputerConversation(models.Model):
     #     date_sent = datetime.now()
     #     return date_sent
 
-
+# computer_message = models.TextField(max_length=2000, null=True)
+#     user_message = models.CharField(max_length=2000, null=True)
