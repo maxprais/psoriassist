@@ -2,9 +2,11 @@
 {% load staticfiles %}
 
 {% block js %}
+        <script src={% static 'js/emotion.js' %}></script>
 {% endblock %}
 
 {% block css %}
+    <link rel="stylesheet" href={% static 'css/emotion.css' %}>
 
 {% endblock %}
 
@@ -12,7 +14,13 @@
     <div id="main-container" class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
+                <div id="myProgress">
+                    <div id="myBar">
+                            <div id="label">2%</div>
+                    </div>
+                </div>
             </div>
         </div>
+     <div id = 'completion'></div>
     </div>
 {% endblock %}
