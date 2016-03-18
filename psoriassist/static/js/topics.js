@@ -92,16 +92,18 @@ var skinIssue = {
         class: 'animated zoomIn msg conversation'
     }],
     responses: [{
-        text: 'Yes',
+        text: 'Consult My Doctor',
         id: 15,
         class:'btn btn-success waves-effect waves-light animated zoomIn conversation',
-        data: {type:'user'}
+        data: {type:'user'},
+        href: '/app/doctor/'
     }, {
         text: 'No',
         id: 16,
         class:'btn btn-warning waves-effect waves-light animated zoomIn'
     }]
 };
+
 
 
 var topics = [welcomeTopic, askToTakePhoto, wantsToTakePhoto, skinIssue];
@@ -117,6 +119,10 @@ function printTopic(topic, container, staggered, reloaded) {
                 data: {type: 'computer'}, text: msg.text
             });
             container.append(welcomeText);
+            //if (welcomeText.text() === 'PASI graph'){
+            //    chartHandler.createPasiChart();
+            //    chartHandler.viewPasiChart();
+            //}
         }, staggered);
         messagesTotalTime += (staggered*ind);
     });
@@ -154,7 +160,9 @@ function TopicManager(){
     this.topics = [];
     this.currentTopicIndex = 0;
     this.respond = function(){
+        console.log('this');
         if (topics[this.currentTopicIndex].responses[0].href){
+
             location.href=topics[this.currentTopicIndex].responses[0].href;
             this.currentTopicIndex++;
         }
@@ -224,6 +232,68 @@ function arrangeData(messageID){
     });
 }
 
+chartHandler = {};
+
+(function (chartHandler) {
+    chartHandler.createPasiChart = function () {
+        var chartHolder = $('<canvas></canvas>', {id: 'pasiChart'});
+        $('.screen-wrapper').append(chartHolder);
+    };
+
+
+    chartHandler.viewPasiChart = function () {
+
+        var ctx = document.getElementById("pasiChart").getContext('2d');
+        var option = {
+            responsive: true
+        };
+        var data = {
+            labels: ["1", "3", "6", "7", "9", "10", "13", "15", "18", "23", "25", "28", "31"],
+            datasets: [
+                {
+                    label: "MARCH PASI SCORE",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [25, 14, 18, 7, 32, 6, 5, 8, 9, 18]
+                }]
+        };
+        var myLineChart = new Chart(ctx).Line(data, option);
+    }
+})(chartHandler);
+
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
 
 $(function(){
     window.msgContainer = $('.screen-wrapper');
