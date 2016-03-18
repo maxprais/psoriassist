@@ -34,6 +34,22 @@
 .fadeOut{
     -webkit-animation-delay: 1.8s;
 }
-
+.messageHolder{
+    background-color: #aa66cc;
+    width:80%;
+    border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;
+}
+.msg{
+    margin-left: 20px;
+}
+p{
+    font-size: 1.5em;
+}
+a{
+    z-index: 1;
+}
 
 

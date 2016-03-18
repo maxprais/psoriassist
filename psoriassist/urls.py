@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^doctor/$', views.Doctor.as_view(), name='doctor'),
     url(r'^medicine/$', views.Medicine.as_view(), name='medicine'),
     url(r'^sendata/$', views.SaveConversationHistory.as_view(), name='data'),
-    url(r'^rload/$', views.ReloadWelcomePage.as_view(), name='rload')
+    url(r'^rload/$', views.ReloadWelcomePage.as_view(), name='rload'),
+    url(r'^profile/$', views.Profile.as_view(), name='profile'),
+    url(r'^telemed/$', views.TeleMed.as_view(), name='telemed')
 ]

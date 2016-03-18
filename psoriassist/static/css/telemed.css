@@ -1,0 +1,14 @@
+.conference-call{
+    display: flex;
+
+}
+.doctor{
+    height: 80%;
+    width: 80%;
+    position: relative;
+}
+#my_camera{
+    height: 341px;
+    width: 341px;
+    position: relative;
+}

@@ -80,7 +80,8 @@ var skinIssue = {
     },{
         text: 'Seems like the lesion has gotten a bit worse. Lets take a look at your current PASI graph',
         id: 12,
-        class: 'animated zoomIn msg conversation'
+        class: 'animated zoomIn msg conversation',
+        graph: true
     },{
         text: 'I actually predict a more serious flare-up soon. Try in the next few days to get more sleep, exercise a bit more and' +
             'focus on a better diet to reduce the likelihood of a flare-up.',
@@ -153,11 +154,16 @@ function printTopic(topic, container, staggered, reloaded) {
 
     topic.messages.forEach(function (msg, ind, arr) {
         setTimeout(function () {
+            var messageHolder = $('<div></div>', {class:'messageHolder'});
+            container.append(messageHolder);
             var welcomeText = $('<p></p>', {
                 class: 'msg conversation', id: 'msg' + msg.id,
                 data: {type: 'computer'}, text: msg.text
             });
-            container.append(welcomeText);
+            messageHolder.append(welcomeText);
+            if (topic.messages[ind].graph){
+                chartHandler.createPasiChart();
+            }
         }, staggered);
         messagesTotalTime += (staggered*ind);
     });
@@ -273,6 +279,7 @@ chartHandler = {};
     chartHandler.createPasiChart = function () {
         var chartHolder = $('<canvas></canvas>', {id: 'pasiChart'});
         $('.screen-wrapper').append(chartHolder);
+        chartHandler.viewPasiChart();
     };
 
 
@@ -332,8 +339,10 @@ $.ajaxSetup({
 
 $(function(){
     window.msgContainer = $('.screen-wrapper');
+    $('html, body').animate({scrollTop: $(document).height()}, 'slow');
     getDataFromServer();
 });
+
 
 
 

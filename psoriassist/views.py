@@ -13,16 +13,21 @@ class Medication(View):
     def get(self, request):
         return render(request, 'psoriassist/my_medication.html')
 
-
 class Doctor(View):
     def get(self, request):
         return render(request, 'psoriassist/view_doctor.html')
 
+class Profile(View):
+    def get(self, request):
+        return render(request, 'psoriassist/profile.html')
 
 class Emotion_Management(View):
     def get(self, request):
         return render(request, 'psoriassist/manage_stress.html')
 
+class TeleMed(View):
+    def get(self, request):
+        return render(request, 'psoriassist/video_call.html')
 
 class TakePhoto(View):
     def get(self, request):

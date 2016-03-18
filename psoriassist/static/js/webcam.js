@@ -1,6 +1,8 @@
 /**
  * Created by User on 3/9/2016.
  */
+
+
 (function(window) {
 
 var Webcam = {
