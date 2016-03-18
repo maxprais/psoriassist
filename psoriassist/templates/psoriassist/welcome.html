@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block body %}
+    {% if user.is_authenticated %}
     <div id="main-container" class="container">
         <div id="1" class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -15,6 +16,9 @@
             </div>
         </div>
     </div>
+    {% else %}
+    <p>You must be authenticated</p>
+    {% endif %}
 
 
 

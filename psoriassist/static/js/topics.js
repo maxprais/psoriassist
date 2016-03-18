@@ -104,9 +104,48 @@ var skinIssue = {
     }]
 };
 
+var reviewMedicine = {
+    id: 4,
+    messages: [{
+        text: 'Would you like to follow Dr Cohen\'s advice and review your medication?',
+        id: 17,
+        class: 'animated zoomIn msg conversation'
+    }],
+    responses: [{
+        text: 'Absolutely',
+        id: 18,
+        class: 'btn btn-success waves-effect waves-light animated zoomIn conversation',
+        href: '/app/medicine/'
+    },{
+        text: 'Not now',
+        id: 19,
+        class: 'btn btn-warning waves-effect waves-light animated zoomIn conversation'
+    }]
+};
+
+var manageEmotion = {
+    id: 5,
+    messages: [{
+        text: 'I notice you are getting a bit stressed. Would you like to try relax for a bit and have a quick ' +
+            'emotional management session?',
+        id: 20,
+        class: 'animated zoomIn msg conversation'
+    }],
+    responses: [{
+        text: 'Sure',
+        id: 21,
+        class: 'btn btn-success waves-effect waves-light animated zoomIn conversation',
+        href: '/app/emotional_management/'
+    },{
+        text: 'Not now',
+        id: 21,
+        class: 'btn btn-warning waves-effect waves-light animated zoomIn conversation'
+    }]
+};
 
 
-var topics = [welcomeTopic, askToTakePhoto, wantsToTakePhoto, skinIssue];
+
+var topics = [welcomeTopic, askToTakePhoto, wantsToTakePhoto, skinIssue, reviewMedicine, manageEmotion];
 
 function printTopic(topic, container, staggered, reloaded) {
 
@@ -119,10 +158,6 @@ function printTopic(topic, container, staggered, reloaded) {
                 data: {type: 'computer'}, text: msg.text
             });
             container.append(welcomeText);
-            //if (welcomeText.text() === 'PASI graph'){
-            //    chartHandler.createPasiChart();
-            //    chartHandler.viewPasiChart();
-            //}
         }, staggered);
         messagesTotalTime += (staggered*ind);
     });
@@ -135,7 +170,7 @@ function printTopic(topic, container, staggered, reloaded) {
             });
             container.append(responseOption);
 
-            if (responseOption.text() === 'No'){
+            if (responseOption.text() === 'No' || responseOption.text() === 'Not Now'){
                 var hr = $('<hr>');
                 container.append(hr);
                 if (responseOption.hasClass('disabled')){
