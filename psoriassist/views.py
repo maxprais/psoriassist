@@ -9,12 +9,6 @@ class Index(View):
     def get(self, request):
         return render(request, 'psoriassist/welcome.html')
 
-
-class Rate(View):
-    def get(self, request):
-        return render (request, 'psoriassist/rate_medication.html')
-
-
 class Medication(View):
     def get(self, request):
         return render(request, 'psoriassist/my_medication.html')
