@@ -1,6 +1,8 @@
 {% extends 'psoriassist/base.html' %}
 {% load staticfiles %}
-
+{% block html %}
+<html style="overflow: hidden;" lang="{{ LANGUAGE_CODE }}">
+{% endblock %}
 {% block css %}
     <link rel="stylesheet" href={% static 'css/profile.css' %}>
 {% endblock %}
@@ -25,8 +27,8 @@
                             <div class="title">
                                 <a target="_blank" href="http://scripteden.com/">Miicah Lehman</a>
                             </div>
-                            <div class="desc">Passionate designer</div>
-                            <div class="desc">Curious developer</div>
+                            <div class="desc">Birthday: 25th May 1993</div>
+                            <div class="desc"><i class="loc-icon fa fa-map-marker"></i>Tel Aviv</div>
                             <div class="desc">Tech geek</div>
                         </div>
                         <div class="bottom">
@@ -43,23 +45,20 @@
                             </a>
 
                         </div>
-                        <hr>
+                        <h4>Recent Activity</h4>
                         <div class="user-info">
                             <div class="row">
-                                <div class="col-md-1">
+
+                                <div class="col-md-12">
                                     <i class="icon fa fa-commenting"></i>
-                                </div>
-                                <div class="col-md-11">
                                     <p class="profile-text">Micah commented on the forum post about new Psoriasis treatments</p>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-md-1">
+                                <div class="col-md-12">
                                     <i class="icon fa fa-thumbs-up"></i>
-                                </div>
-                                <div class="col-md-11">
-                                    <p class="profile-text">Micah commented on the forum post about new Psoriasis treatments</p>
+                                    <p class="profile-text">Micah liked Marion's new photo</p>
                                 </div>
                             </div>
 

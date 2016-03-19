@@ -144,9 +144,27 @@ var manageEmotion = {
     }]
 };
 
+var finishedChat = {
+    id: 6,
+    messages: [{
+        text: 'Well, Micah, looks like we\'re all done for today, how about you check out your social network?' +
+        ' Otherwise be sure to check in soon!',
+        id: 22,
+        class: 'animated zoomIn msg conversation'
+    }],
+    responses: [{
+        text: 'View My Profile',
+        id: 23,
+        class: 'btn btn-success waves-effect waves-light animated zoomIn conversation',
+        href: '/app/profile/'
+    },{
+        text: 'Not now',
+        id: 24,
+        class: 'btn btn-warning waves-effect waves-light animated zoomIn conversation'
+    }]
+};
 
-
-var topics = [welcomeTopic, askToTakePhoto, wantsToTakePhoto, skinIssue, reviewMedicine, manageEmotion];
+var topics = [welcomeTopic, askToTakePhoto, wantsToTakePhoto, skinIssue, reviewMedicine, manageEmotion, finishedChat];
 
 function printTopic(topic, container, staggered, reloaded) {
 
