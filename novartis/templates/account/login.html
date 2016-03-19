@@ -1,27 +1,32 @@
 {% extends "site_base.html" %}
-
+{% block html %}
+<html style="overflow: hidden;" lang="{{ LANGUAGE_CODE }}">
+{% endblock %}
 {% load account_tags %}
 {% load i18n %}
 {% load bootstrap %}
-
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/login_override.css' %}">
+{% endblock %}
 {% block head_title %}{% trans "Log in" %}{% endblock %}
 
 {% block body %}
-    <div class="row">
-        <div class="col-md-4">
+    <div style="background-image: url('{{ STATIC_URL }}images/boatandsea.jpg');height: 590px; margin-top: 30px;" class="row">
+        <div class="col-md-4 col-md-offset-4">
             <form method="POST" action="{% url "account_login" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
-                <legend style="padding-top: 20%">{% trans "Log in to an existing account" %}</legend>
+                <legend style="color: white; padding-top: 20%">{% trans "Log in to an existing account" %}</legend>
                 {% csrf_token %}
                 {{ form|bootstrap }}
                 {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    <input style="color: white;" type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button type="submit" class="btn btn-primary">{% trans "Log in" %}</button>
-                <a href="{% url "account_password_reset" %}" class="btn btn-link">{% trans "Forgot your password?" %}</a>
+                <button style="color: white;" type="submit" class="btn btn-primary">{% trans "Log in" %}</button>
+                <a style="background-color: white; color: grey; text-decoration: none;" href="{% url "account_password_reset" %}" class="btn btn-link">{% trans "Forgot your password?" %}</a>
             </form>
             {% if ACCOUNT_OPEN_SIGNUP %}
-                <p class="login-signup">
-                    <small>
+                <p style="color: white;" class="login-signup">
+                    <small style="color: white;">
                         {% trans "Don't have an account?" %}  <strong><a href="{% urlnext 'account_signup' %}">{% trans "Sign up" %}</a></strong>
                     </small>
                 </p>

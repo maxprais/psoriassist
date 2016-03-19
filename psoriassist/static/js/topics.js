@@ -12,7 +12,7 @@ var welcomeTopic = {
     }, {
         text: 'How are you today? Did you sleep well?',
         id: 2,
-        class: 'msg conversation',
+        class: 'msg conversation animated zoomIn',
         data: {type:'computer'}
     }],
     responses: [{
@@ -37,9 +37,9 @@ var askToTakePhoto = {
         data: {type:'computer'}
     }, {
         text: 'I must admit, Micah, the beauty sleep has a done' +
-        ' a thing or two for you. You\'re skin looks a bit better- would you like to take a picture of it?',
+        ' a thing or two for you. I wonder how that\'s affected your skin - would you like to take a picture of it?',
         id: 6,
-        class: 'msg conversation',
+        class: 'msg conversation animated zoomIn',
         data: {type:'computer'}
     }],
     responses: [{
@@ -60,7 +60,7 @@ var wantsToTakePhoto = {
         text: 'Alrighty then. Remember: there are no good pictures; that\'s ' +
         'just how your face looks sometimes',
         id: 9,
-        class: 'msg conversation',
+        class: 'msg conversation animated zoomIn',
         data: {type:'computer'}
     }],
     responses: [{
@@ -84,13 +84,13 @@ var skinIssue = {
         graph: true
     },{
         text: 'I actually predict a more serious flare-up soon. Try in the next few days to get more sleep, exercise a bit more and' +
-            'focus on a better diet to reduce the likelihood of a flare-up.',
+        'focus on a better diet to reduce the likelihood of a flare-up.',
         id: 13,
         class: 'animated zoomIn msg conversation'
     },{
         text: 'Would you like to have a consultation with your Doctor?',
         id: 14,
-        class: 'animated zoomIn msg conversation'
+        class: 'animated zoomIn msg conversation animated zoomIn'
     }],
     responses: [{
         text: 'Consult My Doctor',
@@ -128,7 +128,7 @@ var manageEmotion = {
     id: 5,
     messages: [{
         text: 'I notice you are getting a bit stressed. Would you like to try relax for a bit and have a quick ' +
-            'emotional management session?',
+        'emotional management session?',
         id: 20,
         class: 'animated zoomIn msg conversation'
     }],
@@ -157,7 +157,7 @@ function printTopic(topic, container, staggered, reloaded) {
             var messageHolder = $('<div></div>', {class:'messageHolder'});
             container.append(messageHolder);
             var welcomeText = $('<p></p>', {
-                class: 'msg conversation', id: 'msg' + msg.id,
+                class: msg.class, id: 'msg' + msg.id,
                 data: {type: 'computer'}, text: msg.text
             });
             messageHolder.append(welcomeText);
@@ -169,22 +169,31 @@ function printTopic(topic, container, staggered, reloaded) {
     });
 
     setTimeout(function () {
+        var row = $('<div></div>', {class: 'row'});
+        container.append(row);
+        var col = $('<div></div>', {class: 'col-md-6 col-md-offset-4'});
+        row.append(col);
         topic.responses.forEach(function (response, ind, arr) {
             var responseOption = $('<a></a>', {
                 id: 'response' + response.id, class: response.class + ' ' + (reloaded ? 'userResponse disabled': ''),
                 data: {type: 'user'}, text: response.text
             });
-            container.append(responseOption);
+            col.append(responseOption);
 
-            if (responseOption.text() === 'No' || responseOption.text() === 'Not Now'){
-                var hr = $('<hr>');
-                container.append(hr);
-                if (responseOption.hasClass('disabled')){
-                    responseOption.remove();
-                }
-            }
+            removeBtn(responseOption);
+            //if (responseOption.text() === 'No' || responseOption.text() === 'Not now'){
+            //    if (responseOption.hasClass('disabled')){
+            //        responseOption.remove();
+            //    }
+            //}
             responseOption.one('click', function(){
+                var row = $('<div></div>', {class: 'row'});
+                container.append(row);
+                var col = $('<div></div>', {class: 'col-md-6 col-md-offset-5'});
+                row.append(col);
+                col.append($(this), $(this).next());
                 $(this).addClass('disabled userResponse');
+                //removeBtn($(this).next());
                 $(this).next().remove();
                 manager.respond();
             });
@@ -196,6 +205,13 @@ function printTopic(topic, container, staggered, reloaded) {
     sendDataToServer(topic);
 }
 
+function removeBtn(btn){
+    if (btn.text() === 'No' || btn.text() === 'Not now'){
+       if (btn.hasClass('disabled')){
+           btn.remove();
+       }
+    }
+}
 
 function TopicManager(){
     this.topics = [];
@@ -203,7 +219,6 @@ function TopicManager(){
     this.respond = function(){
         console.log('this');
         if (topics[this.currentTopicIndex].responses[0].href){
-
             location.href=topics[this.currentTopicIndex].responses[0].href;
             this.currentTopicIndex++;
         }
@@ -258,13 +273,13 @@ function getDataFromServer(){
 function arrangeData(messageID){
 
     var topicsShown = messageID.map(function(id){
-         manager.currentTopicIndex++;
+        manager.currentTopicIndex++;
         return topics[id];
     });
 
     var nextTopic = topics[manager.currentTopicIndex];
     if(topics[manager.currentTopicIndex]){
-         topicsShown.push(nextTopic);
+        topicsShown.push(nextTopic);
     }
 
     console.warn(topicsShown);
@@ -278,7 +293,10 @@ chartHandler = {};
 (function (chartHandler) {
     chartHandler.createPasiChart = function () {
         var chartHolder = $('<canvas></canvas>', {id: 'pasiChart'});
-        $('.screen-wrapper').append(chartHolder);
+
+        var messageHolder = $('<div></div>', {class:'messageHolder'});
+        $('.screen-wrapper').append(messageHolder);
+        messageHolder.append(chartHolder);
         chartHandler.viewPasiChart();
     };
 
@@ -294,11 +312,11 @@ chartHandler = {};
             datasets: [
                 {
                     label: "MARCH PASI SCORE",
-                    fillColor: "rgba(220,220,220,0.2)",
+                    fillColor: "#4285F4",
                     strokeColor: "rgba(220,220,220,1)",
                     pointColor: "rgba(220,220,220,1)",
                     pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
+                    pointHighlightFill: "#4285F4",
                     pointHighlightStroke: "rgba(220,220,220,1)",
                     data: [25, 14, 18, 7, 32, 6, 5, 8, 9, 18]
                 }]

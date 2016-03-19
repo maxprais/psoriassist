@@ -1,7 +1,7 @@
 /**
  * Created by User on 3/18/2016.
  */
-Webcam.attach( '#my_camera' );
+Webcam.attach('#my_camera');
 
 
         function take_snapshot() {

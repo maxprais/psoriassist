@@ -13,6 +13,7 @@
 .userResponse{
     float: right;
     bottom: 49px;
+    margin-top: 15%;
 }
 
 .wait {
@@ -28,28 +29,45 @@
 }
 
 .waitFour{
-      -webkit-animation-delay: 18.5s;
+    -webkit-animation-delay: 18.5s;
 }
 
 .fadeOut{
     -webkit-animation-delay: 1.8s;
 }
 .messageHolder{
-    background-color: #aa66cc;
-    width:80%;
-    border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px solid #000000;
+    background-color: white;
+    opacity: 0.7;
+    width: 60%;
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    border: 0px solid #000000;
 }
 .msg{
     margin-left: 20px;
 }
 p{
     font-size: 1.5em;
+    color: grey;
+    padding: 4%;
 }
 a{
     z-index: 1;
 }
+h2{
+    padding-top: 2%;
+    color: white;
+}
+
+.header-cont{
+    text-align: center;
+     margin-top: 110px;
+    margin-bottom: 70px;
+}
+#pasiChart{
+    padding: 2%;
+}
+
 
 

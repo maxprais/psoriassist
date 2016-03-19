@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block js %}
     <script src={% static 'js/webcam.js' %}></script>
+    <script src={% static 'js/webcam_config.js' %}></script>
     <script src={% static 'js/body_svg.js' %}></script>
 
 {% endblock %}
@@ -13,7 +14,7 @@
 {% block body %}
     <div class="container">
         <div class="row">
-        <a href='{% url 'psoriassist:index' %}' class="btn btn-success waves-effect waves-light conversation">Back to Chat</a>
+        <a href='{% url 'psoriassist:index' %}' style="float: right; margin-top: 45px;" class="btn btn-success waves-effect waves-light conversation">Back to Chat</a>
             <div class="camera-cont hidden">
                 <div class="col-md-4">
                     <div class="photo" id="my_camera" style="width:500px; height:500px;"></div>
@@ -58,7 +59,7 @@
     </div>
 
 
-
+<!--
     <script language="JavaScript">
 
         Webcam.attach( '#my_camera' );
@@ -72,7 +73,7 @@
 
         function preview_snapshot() {
             // freeze camera so user can preview pic
-            Webcam.freeze();
+            //Webcam.freeze();
             // swap button sets
             $('#pre_take_buttons').css('display', 'none');
             $('#post_take_buttons').css('display', '');
@@ -125,6 +126,6 @@
 
 
     </script>
-
+-->
     {#    <a href="javascript:void(take_snapshot())">Take Snapshot</a>#}
 {% endblock %}

@@ -1,9 +1,11 @@
 
 <!DOCTYPE html>
+{% block html %}
 <html lang="{{ LANGUAGE_CODE }}">
+{% endblock %}
 <head>
     <meta charset="utf-8" />
-    <title>{% block head_title_base %}{% if SITE_NAME %}{{ SITE_NAME }} | {% endif %}{% block head_title %}{% endblock %}{% endblock %}</title>
+    <title>{% block head_title_base %}Psoriassist{% endblock %}</title>
     {% block viewport %}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% endblock %}
@@ -42,11 +44,12 @@
     {% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}" id="{% block body_id %}{% endblock %}" {% block body_extra_attributes %}{% endblock %}>
-<div class="{% block wrapper_class %}{% endblock %}">
+{% block style_div %}<div style="background-image: url('{{ STATIC_URL}}images/lake.jpg'); background-size: cover; background-repeat: no-repeat;
+    background-attachment: fixed; height: 120%;"{% endblock %} class="{% block wrapper_class %}{% endblock %}">
 
     {% block topbar_base %}
-        <header style="padding-bottom: 10%">
-            <nav class="blue navbar navbar-fixed-top z-depth-1" role="navigation">
+        <header style="padding-bottom: 0.5px;">
+            <nav style="height: 80px;" class="blue navbar navbar-fixed-top z-depth-1" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -54,9 +57,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand waves-effect waves-light" href="#">Psoriassist</a>
+                        <a class="navbar-brand waves-effect waves-light" href="{% url 'home' %}">Psoriassist</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar nav list-inline pull-right text-center">
@@ -75,26 +77,28 @@
     {% endblock %}
 
     {% block body %}
+
     {% endblock %}
 
 
     {% block body_base %}
         <section id="content_body">
-            <div class="container">
+            <div style="background-image: url('{{ STATIC_URL}}images/boatandsea.jpg')" class="container">
                 {% include "_messages.html" %}
 
             </div>
         </section>
     {% endblock %}
 
-    {% block footer_base %}
-        <hr />
-        <footer>
-            <div class="container">
-                {% block footer %}{% endblock %}
-            </div>
-        </footer>
-    {% endblock %}
+{#    {% block footer_base %}#}
+{#        <div style="background-color: #0099CC" class="foot-cont">#}
+{#        <footer>#}
+{#            <div  class="container">#}
+{#                {% block footer %}{% endblock %}#}
+{#            </div>#}
+{#        </footer>#}
+{#        </div>#}
+{#    {% endblock %}#}
 </div>
 
 {% block scripts %}{% endblock %}
