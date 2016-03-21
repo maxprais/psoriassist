@@ -189,7 +189,7 @@ function printTopic(topic, container, staggered, reloaded) {
     setTimeout(function () {
         var row = $('<div></div>', {class: 'row'});
         container.append(row);
-        var col = $('<div></div>', {class: 'col-md-6 col-md-offset-4'});
+        var col = $('<div></div>', {class: 'col-md-6 col-md-offset-5'});
         row.append(col);
         topic.responses.forEach(function (response, ind, arr) {
             var responseOption = $('<a></a>', {

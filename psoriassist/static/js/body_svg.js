@@ -3,22 +3,16 @@
  */
 photoBody = {};
 
-photoBody.select = $(function() {
+$(function() {
     $('path').on('click', function () {
         console.log($(this));
         $(this).css('fill', 'blue');
-        photoBody.unselect();
         photoBody.hide();
-
     });
 });
 
 
-photoBody.unselect = function(){
-    $('path').css('fill', '');
-};
-
-photoBody.hide = function(){
+photoBody.hide = function () {
    $('.body-cont').addClass('hidden');
    $('.camera-cont').removeClass('hidden');
     Webcam.attach('#my_camera');

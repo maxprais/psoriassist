@@ -1,5 +1,8 @@
 {% extends 'psoriassist/base.html' %}
 {% load staticfiles %}
+{% block html %}
+<html style="overflow: hidden;" lang="{{ LANGUAGE_CODE }}">
+{% endblock %}
 
 {% block css %}
     <link rel="stylesheet" href={% static 'css/telemed.css' %}>
@@ -13,10 +16,9 @@
 
 {% block body %}
 
-    <div class="container">
-        <div class="row">
+    <div class="container cont"><a href='{% url 'psoriassist:index' %}' style="float: right; margin-top: 45px;" class="btn btn-success waves-effect waves-light conversation">Back to Chat</a>
+        <div class="row video-cont">
             <div class="col-md-8">
-                <a href='{% url 'psoriassist:index' %}' style="float: right; margin-top: 45px;" class="btn btn-success waves-effect waves-light conversation">Back to Chat</a>
                 <div class="conference-call">
                     <video class="doctor" autoplay src={% static 'videos/doctorchat.mp4' %}></video>
                     <div class="photo" id="my_camera"></div>

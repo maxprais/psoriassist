@@ -10,3 +10,17 @@
 .hidden{
     display: none;
 }
+.camera-cont{
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 50%;
+}
+#cont{
+    height: 1000px;
+}
+.body-cont{
+    margin-top: 100px;
+}
+#my_camera{
+    transform: translateY(-100%);
+}

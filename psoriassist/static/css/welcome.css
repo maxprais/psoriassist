@@ -31,9 +31,16 @@
 .waitFour{
     -webkit-animation-delay: 18.5s;
 }
+.screen-wrapper{
+    margin-left: 40px;
+}
 
 .fadeOut{
     -webkit-animation-delay: 1.8s;
+}
+
+.firstRow{
+    height: 1000px;
 }
 .messageHolder{
     background-color: white;

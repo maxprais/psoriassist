@@ -45,7 +45,7 @@
 </head>
 <body class="{% block body_class %}{% endblock %}" id="{% block body_id %}{% endblock %}" {% block body_extra_attributes %}{% endblock %}>
 {% block style_div %}<div style="background-image: url('{{ STATIC_URL}}images/lake.jpg'); background-size: cover; background-repeat: no-repeat;
-    background-attachment: fixed; height: 120%;"{% endblock %} class="{% block wrapper_class %}{% endblock %}">
+    background-attachment: fixed; height: 1000%;"{% endblock %} class="{% block wrapper_class %}{% endblock %}">
 
     {% block topbar_base %}
         <header style="padding-bottom: 0.5px;">
@@ -113,13 +113,13 @@
 
 {% block float_buttons %} {% endblock %}
 
-
+{% block constant_js %}
     <script src={% static 'js/jquery.min.js'%}></script>
     <script src={% static 'js/bootstrap.min.js' %}></script>
-
     <script src={% static 'js/mdb.min.js'%}></script>
+{% endblock %}
 
-    {% block js %}
+{% block js %}
 
 
     {% endblock %}
