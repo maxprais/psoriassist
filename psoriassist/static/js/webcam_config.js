@@ -41,8 +41,8 @@ function cancel_preview() {
     $('#post_take_buttons').css('display', 'none');
 }
 
-function sendPhoto(img){
 
+function sendPhoto(img){
 
     $.ajax({
         type: "POST",
@@ -68,9 +68,8 @@ function save_photo() {
         // swap buttons back
         document.getElementById('pre_take_buttons').style.display = '';
         document.getElementById('post_take_buttons').style.display = 'none';
-        sendPhoto(data_uri)
+        sendPhoto(data_uri);
 
-
-    })
+    });
 }
 

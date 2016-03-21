@@ -1,0 +1,14 @@
+/*.move-it{*/
+    /*padding-bottom: 250px;*/
+/*}*/
+.card-wrapper .face {
+    opacity: 0.7;
+}
+
+#pasiChart{
+    padding: 20px;
+}
+
+#emotionalChart{
+    padding: 20px;
+}

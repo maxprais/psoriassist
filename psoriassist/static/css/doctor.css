@@ -18,7 +18,6 @@
 }
 
 #map {
-
     width: 500px;
     height: 400px;
     background-color: #CCC;
@@ -27,6 +26,11 @@
 .textAbove{
     font-size: 35px;
 }
-.fRow{
+
+.fRow {
     height: 1000px;
+}
+
+.card-wrapper .face {
+    opacity: 0.7;
 }
