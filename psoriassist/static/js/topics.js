@@ -84,7 +84,7 @@ var skinIssue = {
         graph: true
     },{
         text: 'I actually predict a more serious flare-up soon. Try in the next few days to get more sleep, exercise a bit more and' +
-        'focus on a better diet to reduce the likelihood of a flare-up.',
+        ' focus on a better diet to reduce the likelihood of a flare-up.',
         id: 13,
         class: 'animated zoomIn msg conversation'
     },{
@@ -148,7 +148,7 @@ var finishedChat = {
     id: 6,
     messages: [{
         text: 'Well, Micah, looks like we\'re all done for today, how about you check out your social network?' +
-        ' Otherwise be sure to check in soon!',
+        ' In any case, be sure to check in soon!',
         id: 22,
         class: 'animated zoomIn msg conversation'
     }],
