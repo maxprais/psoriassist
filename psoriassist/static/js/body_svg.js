@@ -10,6 +10,9 @@ photoBody.select = $(function() {
         photoBody.unselect();
         photoBody.hide();
 
+
+
+
     });
 });
 
@@ -21,9 +24,8 @@ photoBody.unselect = function(){
 photoBody.hide = function(){
    $('.body-cont').addClass('hidden');
    $('.camera-cont').removeClass('hidden');
-    Webcam.attach('#my_camera');
+    //Webcam.attach('#my_camera');
 };
-
 
 
 

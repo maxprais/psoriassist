@@ -5,6 +5,7 @@
     <script src={% static 'js/webcam_config.js' %}></script>
     <script src={% static 'js/body_svg.js' %}></script>
 
+
 {% endblock %}
 
 {% block css %}
@@ -17,7 +18,7 @@
         <a href='{% url 'psoriassist:index' %}' style="float: right; margin-top: 45px;" class="btn btn-success waves-effect waves-light conversation">Back to Chat</a>
             <div class="camera-cont hidden">
                 <div class="col-md-4">
-                    <div class="photo" id="my_camera" style="width:500px; height:500px;"></div>
+                    <div class="photo" id="my_camera"></div>
                     <div id="pre_take_buttons">
                         <a class="take-photo btn btn-warning btn-rounded waves-effect waves-light"
                            onclick="preview_snapshot()">Take Snapshot</a>
@@ -127,5 +128,5 @@
 
     </script>
 -->
-    {#    <a href="javascript:void(take_snapshot())">Take Snapshot</a>#}
+{#        <a href="javascript:void(take_snapshot())">Take Snapshot</a>#}
 {% endblock %}

@@ -7,6 +7,11 @@
 .body-wrapper{
     text-align: center;
 }
-.hidden{
+#my_camera .hidden{
     display: none;
+}
+
+#my_camera {
+    width:500px;
+    height:500px;
 }

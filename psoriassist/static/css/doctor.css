@@ -27,3 +27,7 @@
 .textAbove{
     font-size: 35px;
 }
+
+.card-wrapper .face {
+    opacity: 0.7;
+}
