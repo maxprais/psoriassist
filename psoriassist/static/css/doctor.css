@@ -19,8 +19,9 @@
 
 #map {
     width: 500px;
-    height: 400px;
+    height: 460px;
     background-color: #CCC;
+    margin-top: 10px;
 }
 
 .textAbove{
@@ -34,3 +35,7 @@
 .card-wrapper .face {
     opacity: 0.7;
 }
+#card-1{
+    height: 460px;
+}
+

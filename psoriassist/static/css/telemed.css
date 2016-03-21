@@ -1,6 +1,5 @@
 .conference-call{
     position: relative;
-
 }
 .doctor{
     height: 100%;
@@ -8,13 +7,20 @@
     position: relative;
 }
 #my_camera{
-    height: 341px;
-    width: 341px;
-    position: absolute;
+    height: 200px;
+    width: 200px;
+
+}
+.transformed{
+    transform: translateY(-100%);
 }
 .cont{
     height: 1000px;
 }
 .video-cont{
-    margin-top: 300px;
+    margin-top: 100px;
 }
+video{
+
+}
+

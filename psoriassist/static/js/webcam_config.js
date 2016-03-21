@@ -3,8 +3,8 @@
  */
 Webcam.attach('#my_camera');
 Webcam.set({
-    width: 500,
-    height: 450,
+    width: 450,
+    height: 400,
     dest_width: 640,
     dest_height: 480,
     image_format: 'jpeg',
@@ -14,8 +14,11 @@ Webcam.set({
     fps: 45
 });
 
-(function (){
-    $('#my_camera').css('transform', 'translateY(-100%)');
+
+(function () {
+    videos = $('video');
+    var the_vid = videos[1];
+    $(the_vid).addClass('transformed');
 })();
 
 function take_snapshot() {
@@ -61,9 +64,9 @@ function save_photo() {
     // actually snap photo (from preview freeze) and display it
     Webcam.snap(function (data_uri) {
         // display results in page
-        document.getElementById('my_result').innerHTML =
-            '<h1>Here is your image:</h1>' +
-            '<img src="' + data_uri + '"/>';
+        //document.getElementById('my_result').innerHTML =
+        //    '<h1>Here is your image:</h1>' +
+        //    '<img src="' + data_uri + '"/>';
 
         // swap buttons back
         document.getElementById('pre_take_buttons').style.display = '';

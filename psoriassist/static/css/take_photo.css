@@ -10,10 +10,9 @@
 .hidden{
     display: none;
 }
-
 .camera-cont{
     text-align: center;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-bottom: 50%;
 }
 #cont{
@@ -23,10 +22,12 @@
     margin-top: 100px;
 }
 #my_camera {
-    transform: translateY(-100%);
-}
-
-#my_camera {
     width:500px;
     height:500px;
+}
+
+@media screen and (min-width: 500px){
+    #post_take_buttons{
+        width: 100%;
+    }
 }

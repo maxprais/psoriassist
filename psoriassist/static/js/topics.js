@@ -164,7 +164,7 @@ var finishedChat = {
     }]
 };
 
-var topics = [welcomeTopic, askToTakePhoto, wantsToTakePhoto, skinIssue, reviewMedicine, manageEmotion, finishedChat];
+var topics = [welcomeTopic, askToTakePhoto, wantsToTakePhoto, skinIssue, finishedChat];
 
 function printTopic(topic, container, staggered, reloaded) {
 
