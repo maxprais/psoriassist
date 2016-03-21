@@ -26,11 +26,11 @@ chartHandler = {};
         var data = {
             labels: ["1", "3", "6", "7", "9", "10", "13", "15", "18", "23", "25", "28", "31"],
             datasets: [
-                {
+                { //0	191	255
                     label: "MARCH PASI SCORE",
                     fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
+                    strokeColor: "rgba(0,191,255,1)",
+                    pointColor: "#000000",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
@@ -52,8 +52,8 @@ chartHandler = {};
                 {
                     label: "MARCH EMOTIONAL SCORE",
                     fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
+                    strokeColor: "rgba(0,191,255,1)",
+                    pointColor: "#000000",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
